@@ -9,30 +9,30 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#99CC99",
     "navigationBarTitleText": "花由习生",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "color": "#669933",
-    "selectedColor": "#99CC99",
+    "color": "#99CC99",
+    "selectedColor": "#669933",
     "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/study hall/study hall",
         "text": "text",
-        "iconPath": "images/icon_zixishi.png",
-        "selectedIconPath": "images/icon_zixishi0.png"
+        "iconPath": "images/icon_zixishi0.png",
+        "selectedIconPath": "images/icon_zixishi.png"
       },
       {
         "pagePath": "pages/flower/flower",
         "text": "text",
-        "iconPath": "images/hua.png",
-        "selectedIconPath": "images/hua0.png"
+        "iconPath": "images/hua0.png",
+        "selectedIconPath": "images/hua.png"
       },
       {
         "pagePath": "pages/mine/mine",
         "text": "text",
-        "iconPath": "images/self.png",
-        "selectedIconPath": "images/self0.png"
+        "iconPath": "images/self0.png",
+        "selectedIconPath": "images/self.png"
       }
     ]
   }
