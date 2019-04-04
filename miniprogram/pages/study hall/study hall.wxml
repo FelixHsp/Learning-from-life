@@ -1,0 +1,12 @@
+<view id="background">
+<image src='../../images/flower-hua.png'></image>
+<image src='../../images/flower-hua2.png'></image>
+<image src='../../images/flower-hua3.png'></image>
+<image src='../../images/flower-hua4.png'></image>
+<view id='date'>
+  <view class='year'>{{nowYear}}</view>
+  <view class='mou'>{{nowMou}}</view>
+  <view class='day'>{{nowDay}}</view>
+  <view class='md'>/</view>
+</view>
+</view>

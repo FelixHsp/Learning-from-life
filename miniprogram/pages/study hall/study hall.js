@@ -1,10 +1,13 @@
+var util = require('../../utils/util.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    nowYear: '',
+    nowMou:'',
+    nowDay:''
   },
 
   /**
@@ -61,5 +64,12 @@ Page({
    */
   onShareAppMessage: function () {
     
+  },
+  onLoad: function () {
+    this.setData({
+      nowYear: util.formatYear(new Date()),
+      nowMou: util.formatMou(new Date()),
+      nowDay: util.formatDay(new Date())
+    });
   }
 })

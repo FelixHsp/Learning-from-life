@@ -1,3 +1,4 @@
 {
-  "usingComponents": {}
+  "backgroundColor": "#99CC99",
+  "navigationBarTitleText": "自习室"
 }
