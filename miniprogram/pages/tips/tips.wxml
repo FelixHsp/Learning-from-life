@@ -1,2 +1,14 @@
 <!--pages/tips/tips.wxml-->
-<text>pages/tips/tips.wxml</text>
+<view class='tips'>
+
+<view id='section-one'>
+<image class='tip-one' src="../../images/tip-one.png" mode="widthFix"></image>
+<text class="one-text">第一模块</text>
+</view>
+
+<view id='section-two'>
+<image class='tip-two' src='../../images/tip-two.png' mode="widthFix"></image>
+<text class='two-text'>第二模块</text>
+</view>
+
+</view>

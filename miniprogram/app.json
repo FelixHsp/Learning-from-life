@@ -31,7 +31,7 @@
       },
       {
         "pagePath": "pages/tips/tips",
-        "text": "text",
+        "text": "计划制定",
         "iconPath": "images/tips0.png",
         "selectedIconPath": "images/tips.png"
       },
@@ -42,5 +42,6 @@
         "selectedIconPath": "images/self.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
