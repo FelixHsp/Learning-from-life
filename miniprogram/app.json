@@ -3,7 +3,8 @@
     "pages/study hall/study hall",
     "pages/flower/flower",
     "pages/tips/tips",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/study hall/study hall-reserve/study hall-reserve"
   ],
   "window": {
     "backgroundColor": "#FFFFFF",
