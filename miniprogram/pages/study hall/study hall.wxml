@@ -23,8 +23,8 @@
 <view id='room-type'>
   <view class='text'>点击下方小房子预定自习室</view>
   <view class='type'>
-    <image src='../../images/one.png'></image>
-    <image src='../../images/two.png'></image>
+    <image src='../../images/one-select.png'></image>
+    <image src='../../images/two-select.png'></image>
     <view class='one'>单人自习室</view>
     <view class='two'>双人自习室</view>
   </view>
@@ -33,14 +33,14 @@
 
 <!-- 自习室 -->
 <view id='room'>
-  <image src='../../images/one.png' bindtap='click1'></image>
-  <image src='../../images/one.png' bindtap='click2'></image>
-  <image src='../../images/one.png' bindtap='click3'></image>
-  <image src='../../images/one.png' bindtap='click4'></image>
-  <image src='../../images/one.png' bindtap='click5'></image>
-  <image src='../../images/one.png' bindtap='click6'></image>
-  <image src='../../images/two.png' bindtap='click7'></image>
-  <image src='../../images/two.png' bindtap='click8'></image>
-  <image src='../../images/two.png' bindtap='click9'></image>
+  <image src='../../images/one-select.png' bindtap='click1'></image>
+  <image src='../../images/one-select.png' bindtap='click2'></image>
+  <image src='../../images/one-select.png' bindtap='click3'></image>
+  <image src='../../images/one-select.png' bindtap='click4'></image>
+  <image src='../../images/one-select.png' bindtap='click5'></image>
+  <image src='../../images/one-select.png' bindtap='click6'></image>
+  <image src='../../images/two-select.png' bindtap='click7'></image>
+  <image src='../../images/two-select.png' bindtap='click8'></image>
+  <image src='../../images/two-select.png' bindtap='click9'></image>
 </view>
 <!-- 自习室 -->

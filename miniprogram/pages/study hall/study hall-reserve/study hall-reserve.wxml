@@ -1,2 +1,24 @@
-<!--pages/study hall/study hall-reserve/study hall-reserve.wxml-->
-<text>pages/study hall/study hall-reserve/study hall-reserve.wxml</text>
+<view id='image-wrapper'>
+  <image class='img'></image>
+  <view class='name'>mine自习室</view>
+  <view class='add'>哈尔滨市香坊区木材街59号</view>
+</view>
+<!-- 房屋名字，选择时间 价格 联系人姓名 联系人电话 -->
+<view id='content-wrapper'>
+  <view>
+    <view class='room-name'>自习室编号</view>
+    <view class='room-name-value'>自习室{{idx}}</view>
+  </view>
+  <view>
+    <view class='room-time'>选择预定时间</view>
+  </view>
+  <view>
+    <view class='room-price'>每小时价格</view>
+  </view>
+  <view>
+    <view class='user-name'>预定人姓名</view>
+  </view>
+  <view>
+    <view class='user=call'>预定人联系方式</view>
+  </view>
+</view>

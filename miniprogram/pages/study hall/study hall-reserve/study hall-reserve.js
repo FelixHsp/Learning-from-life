@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    idx:''
   },
 
   /**
@@ -63,7 +63,9 @@ Page({
   onShareAppMessage: function () {
 
   },
-  onLoad(option) {
-    console.log(option.id)
+  onLoad: function (option) {
+    this.setData({
+      idx: option.id
+    });
   }
 })
