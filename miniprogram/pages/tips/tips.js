@@ -71,8 +71,8 @@ Page({
     })
   },
   goToTipTwo: function(){
-    wn.navigateTo({
-      url: '/pages/tips/two/two'
+    wx.navigateTo({
+      url: '/pages/tips/two/two',
     })
   }
 })
