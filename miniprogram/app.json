@@ -3,7 +3,9 @@
     "pages/study hall/study hall",
     "pages/flower/flower",
     "pages/tips/tips",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/tips/one/one",
+    "pages/tips/two/two"
   ],
   "window": {
     "backgroundColor": "#FFFFFF",

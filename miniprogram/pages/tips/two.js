@@ -1,4 +1,4 @@
-// pages/tips/tips.js
+// pages/tips/two.js
 Page({
 
   /**
@@ -62,17 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-// 页面跳转
-  goToTipOne: function(){ 
-    wx.navigateTo({
-      url: '/pages/tips/one/one',
-    })
-  },
-  goToTipTwo: function(){
-    wn.navigateTo({
-      url: '/pages/tips/two/two'
-    })
   }
 })
