@@ -71,5 +71,60 @@ Page({
       nowMou: util.formatMou(new Date()),
       nowDay: util.formatDay(new Date())
     });
+  },
+  // 读取数据库
+  /* queryData: function () {
+    const db = wx.cloud.database({});
+    const table = db.collection('todos');
+    table.doc("XKhyWHffS3SWfGcV").get({
+      success: function (res) {
+        console.log(res)
+      }
+    })
+  }, */
+  click1: function () {
+    wx.navigateTo({
+      url: '../study hall/study hall-reserve/study hall-reserve?id=1',
+    })
+  },
+  click2: function () {
+    wx.navigateTo({
+      url: '../study hall/study hall-reserve/study hall-reserve?id=2',
+    })
+  },
+  click3: function () {
+    wx.navigateTo({
+      url: '../study hall/study hall-reserve/study hall-reserve?id=3',
+    })
+  },
+  click4: function () {
+    wx.navigateTo({
+      url: '../study hall/study hall-reserve/study hall-reserve?id=4',
+    })
+  },
+  click5: function () {
+    wx.navigateTo({
+      url: '../study hall/study hall-reserve/study hall-reserve?id=5',
+    })
+  },
+  click6: function () {
+    wx.navigateTo({
+      url: '../study hall/study hall-reserve/study hall-reserve?id=6',
+    })
+  },
+  click7: function () {
+    wx.navigateTo({
+      url: '../study hall/study hall-reserve/study hall-reserve?id=7',
+    })
+  },
+  click8: function () {
+    wx.navigateTo({
+      url: '../study hall/study hall-reserve/study hall-reserve?id=8',
+    })
+  },
+  click9: function () {
+    wx.navigateTo({
+      url: '../study hall/study hall-reserve/study hall-reserve?id=9',
+    })
   }
 })
