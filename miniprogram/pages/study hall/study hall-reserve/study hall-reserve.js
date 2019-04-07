@@ -132,6 +132,16 @@ Page({
     })
   },
   submit () {
-    console.log(this.data.book)
+    if (this.data.book.user_name == '' || this.data.book.user_call == ''||this.data.book.room_time == ''){
+      wx.showModal({
+        title: '提示',
+        content: '请将信息填写完整',
+        success:function(){
+
+        }
+      })
+    }else{
+      console.log(this.data.book)
+    }
   }
 })
