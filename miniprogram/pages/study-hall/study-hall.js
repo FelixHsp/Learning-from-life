@@ -84,47 +84,47 @@ Page({
   }, */
   click1: function () {
     wx.navigateTo({
-      url: '../study hall/study hall-reserve/study hall-reserve?id=1',
+      url: '../study-hall/study-hall-reserve/study-hall-reserve?id=1',
     })
   },
   click2: function () {
     wx.navigateTo({
-      url: '../study hall/study hall-reserve/study hall-reserve?id=2',
+      url: '../study-hall/study-hall-reserve/study-hall-reserve?id=2',
     })
   },
   click3: function () {
     wx.navigateTo({
-      url: '../study hall/study hall-reserve/study hall-reserve?id=3',
+      url: '../study-hall/study-hall-reserve/study-hall-reserve?id=3',
     })
   },
   click4: function () {
     wx.navigateTo({
-      url: '../study hall/study hall-reserve/study hall-reserve?id=4',
+      url: '../study-hall/study-hall-reserve/study-hall-reserve?id=4',
     })
   },
   click5: function () {
     wx.navigateTo({
-      url: '../study hall/study hall-reserve/study hall-reserve?id=5',
+      url: '../study-hall/study-hall-reserve/study-hall-reserve?id=5',
     })
   },
   click6: function () {
     wx.navigateTo({
-      url: '../study hall/study hall-reserve/study hall-reserve?id=6',
+      url: '../study-hall/study-hall-reserve/study-hall-reserve?id=6',
     })
   },
   click7: function () {
     wx.navigateTo({
-      url: '../study hall/study hall-reserve/study hall-reserve?id=7',
+      url: '../study-hall/study-hall-reserve/study-hall-reserve?id=7',
     })
   },
   click8: function () {
     wx.navigateTo({
-      url: '../study hall/study hall-reserve/study hall-reserve?id=8',
+      url: '../study-hall/study-hall-reserve/study-hall-reserve?id=8',
     })
   },
   click9: function () {
     wx.navigateTo({
-      url: '../study hall/study hall-reserve/study hall-reserve?id=9',
+      url: '../study-hall/study-hall-reserve/study-hall-reserve?id=9',
     })
   }
 })

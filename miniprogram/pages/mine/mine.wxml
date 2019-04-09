@@ -1,2 +1,18 @@
 <!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view>
+  <view class='top-img'>
+    <view class='top-content'>
+      <view class='user-avatar'>
+        <open-data type="userAvatarUrl" class="top-img"></open-data>
+      </view>
+      <view class='user-name'>
+        <open-data type="userNickName" class="top-user"></open-data>
+      </view>
+    </view>
+  </view>
+  <view class='list'>
+    <view class='pay iconfont icon-zhangdanguanli' bindtap='moveBill'>账单管理</view>
+    <view class='record iconfont icon-jilu' bindtap='moveRecord'>学习记录</view>
+    <view class='about iconfont icon-guanyuwomen' bindtap='moveAbout'>关于我们</view>
+  </view>
+</view>

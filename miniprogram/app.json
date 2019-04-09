@@ -1,10 +1,13 @@
 {
   "pages": [
-    "pages/study hall/study hall",
-    "pages/study hall/study hall-reserve/study hall-reserve",
+    "pages/study-hall/study-hall",
+    "pages/study-hall/study-hall-reserve/study-hall-reserve",
     "pages/flower/flower",
     "pages/tips/tips",
     "pages/mine/mine",
+    "pages/mine/about/about",
+    "pages/mine/bill/bill",
+    "pages/mine/record/record",
     "pages/tips/one/one",
     "pages/tips/two/two"
   ],
@@ -21,7 +24,7 @@
     "borderStyle": "white",
     "list": [
       {
-        "pagePath": "pages/study hall/study hall",
+        "pagePath": "pages/study-hall/study-hall",
         "text": "text",
         "iconPath": "images/icon_zixishi0.png",
         "selectedIconPath": "images/icon_zixishi.png"
