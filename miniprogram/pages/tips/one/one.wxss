@@ -1,1 +1,12 @@
 /* miniprogram/pages/tips/one/one.wxss */
+page{
+  background-color: #eee;
+  height: 100%;
+  width: 100%;
+  font-family: PingFangSC-Regular;
+}
+.module{
+  background-color: #CCFF99;
+  height: 25%;
+  width: 80%;
+}
