@@ -66,6 +66,24 @@ Page({
 
   },
   onLoad: function() {
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'weather',
+      // 传给云函数的参数
+      data: {
+        code: '101050101'
+      },
+    }).then(res => {
+      // console.log(res.result)
+      console.log(JSON.parse(res.result).weatherinfo)
+      // city = JSON.parse(res.result).weatherinfo.city
+      // temp = JSON.parse(res.result).weatherinfo.temp
+        this.setData({
+          weather: JSON.parse(res.result).weatherinfo,
+          ['weather.temp']: [JSON.parse(res.result).weatherinfo.temp]+'℃'
+        })
+      })
+      .catch(console.error);
     this.setData({
       nowYear: util.formatYear(new Date()),
       nowMou: util.formatMou(new Date()),
