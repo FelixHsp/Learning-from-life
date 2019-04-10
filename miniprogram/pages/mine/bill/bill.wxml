@@ -1,2 +1,8 @@
 <!--pages/mine/bill/bill.wxml-->
-<text>pages/mine/bill/bill.wxml</text>
+<view wx:for="{{list}}" wx:for-index="idx" wx:for-item="itemName" id="list">
+  <view class='list-item'>
+    <image class='img-pay' src='../../../images/pay.png'/>
+    <text class='title'>{{itemName.title}}</text>
+    <text class='pay'>{{itemName.pay}}</text>
+  </view>
+</view>

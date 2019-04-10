@@ -45,10 +45,11 @@
       },
       {
         "pagePath": "pages/mine/mine",
-        "text": "text",
+        "text": "我的",
         "iconPath": "images/self0.png",
         "selectedIconPath": "images/self.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
