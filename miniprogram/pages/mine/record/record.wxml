@@ -1,0 +1,10 @@
+<!--pages/mine/record/record.wxml-->
+<view wx:for="{{list}}" wx:for-index="idx" wx:for-item="itemName" id="list">
+  <view class='list-item'>
+    <text class='title'>{{itemName.title}}</text>
+    <text class='timer'>
+      <text class='time'>{{itemName.time}}</text>
+      <text class='cost'>{{itemName.cost}}</text>
+    </text>
+  </view>
+</view>

@@ -1,27 +1,16 @@
-// pages/mine/mine.js
+// pages/mine/record/record.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    list: [{
+      title: "学习物理", pay: "-5.80", time: "今天8:50"
+      , cost: 3
+    }, { title: "学习六级", pay: "-5.80", time: "今天8:50", cost: 3 }, { title: "学习线代", pay: "-5.80", time: "今天8:50", cost: 3 }, { title: "学习高数", pay: "-5.80", time: "今天8:50", cost: 3 }, { title: "学习雅思", pay: "-5.80", time: "今天8:50", cost: 3 }, { title: "学习数据结构", pay: "-5.80", time: "今天8:50", cost: 3 }]
+  },
 
-  },
-  moveBill(){
-    wx.navigateTo({
-      url: 'bill/bill',
-    })
-  },
-  moveRecord() {
-    wx.navigateTo({
-      url: 'record/record',
-    })
-  },
-  moveAbout() {
-    wx.navigateTo({
-      url: 'about/about',
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,0 +1,25 @@
+/* pages/mine/bill/bill.wxss */
+#list .list-item{
+  margin: 0 auto;
+  width: 90%;
+  height: 80px;
+  border-bottom: 1px solid #ccc;
+  line-height: 80px;
+  position: relative;
+}
+#list .list-item .img-pay{
+  width: 40px;
+  height: 40px;
+  background-color: #99CC99;
+  display: inline-block;
+  margin-top: 20px;
+}
+#list .list-item .title{
+  position: absolute;
+  top:50%;
+  left: 80px;
+  transform: translateY(-50%);
+}
+#list .list-item .pay{
+  float: right;
+}
