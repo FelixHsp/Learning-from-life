@@ -72,6 +72,22 @@ Page({
       nowDay: util.formatDay(new Date())
     });
   },
+  //添加数据库
+  /* const db = wx.cloud.database({});
+    const table = db.collection('todos');
+    table.add({
+      data: {
+        description: "我正在学习云开发！",
+        due: new Date(),
+        tags: [
+          "cloud",
+          "database"
+        ],
+      },
+      success: function (res) {
+        console.log(res._id)
+      }
+    }); */
   // 读取数据库
   /* queryData: function () {
     const db = wx.cloud.database({});
@@ -86,11 +102,28 @@ Page({
     wx.navigateTo({
       url: '../study-hall/study-hall-reserve/study-hall-reserve?id=1',
     })
+    /* const db = wx.cloud.database({});
+    const table = db.collection('todos');
+    table.doc("f4cf49925cac6e5502ed8b1e42338136").get({
+      success: function (res) {
+        console.log(res)
+      }
+    }) */
   },
   click2: function () {
     wx.navigateTo({
       url: '../study-hall/study-hall-reserve/study-hall-reserve?id=2',
     })
+    /* const db = wx.cloud.database({});
+    const table = db.collection('todos');
+    table.add({
+      data: {
+        description: "我正在学习云开发！"
+      },
+      success: function (res) {
+        console.log(res._id)
+      } 
+    }); */
   },
   click3: function () {
     wx.navigateTo({
