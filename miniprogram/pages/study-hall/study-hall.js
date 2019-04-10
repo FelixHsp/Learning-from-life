@@ -66,6 +66,16 @@ Page({
 
   },
   onLoad: function() {
+    /* wx.cloud.callFunction({
+      name: 'login',
+      data: {},
+      success: res => {
+        console.log('[云函数] [login] user openid: ', res.result.openid)
+      },
+      fail: err => {
+        console.error('[云函数] [login] 调用失败', err)
+      }
+    }) */
     wx.cloud.callFunction({
       // 云函数名称
       name: 'weather',
@@ -75,7 +85,7 @@ Page({
       },
     }).then(res => {
       // console.log(res.result)
-      console.log(JSON.parse(res.result).weatherinfo)
+      // console.log(JSON.parse(res.result).weatherinfo)
       // city = JSON.parse(res.result).weatherinfo.city
       // temp = JSON.parse(res.result).weatherinfo.temp
         this.setData({
