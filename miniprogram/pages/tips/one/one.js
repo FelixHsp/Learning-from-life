@@ -5,7 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    array:[{
+      content:'英语单词X100'
+    },{
+      content:'数学题x5'
+    }]
   },
 
   /**

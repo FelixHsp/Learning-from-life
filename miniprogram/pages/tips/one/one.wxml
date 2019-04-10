@@ -1,2 +1,11 @@
 <!--miniprogram/pages/tips/one/one.wxml-->
-<text>miniprogram/pages/tips/one/one.wxml</text>
+<!-- 学习计划页面 -->
+
+<!-- 每个计划模块 -->
+<view wx:for="{{array}}">
+<scroll-view id='module'
+  scroll-y
+>
+{{item.content}}
+</scroll-view>
+</view>
