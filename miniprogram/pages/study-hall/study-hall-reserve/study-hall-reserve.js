@@ -1,4 +1,5 @@
 // pages/study hall/study hall-reserve/study hall-reserve.js
+var study_price;
 Page({
 
   /**
@@ -77,6 +78,16 @@ Page({
       idx: option.id,
       ['book.room_id']:option.id
     });
+    const db = wx.cloud.database({});
+    const studyhalls = db.collection('studyhalls');
+    studyhalls.where({
+      studyhall_id: option.id
+    })
+      .get({
+        success(res) {
+          study_price = res.data[0].studyhall_price
+        }
+      })
   },
   bindtime: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -85,36 +96,36 @@ Page({
     })
     if(e.detail.value==0){
       this.setData({
-        ['book.room_price_yuan']:0.5*10+'元',
-        ['book.room_price']:0.5*10,
+        ['book.room_price_yuan']:0.5*study_price+'元',
+        ['book.room_price']: 0.5 * study_price,
         ['book.room_time']:0.5
       })
     }
     if (e.detail.value == 1) {
       this.setData({
-        ['book.room_price_yuan']: 1 * 10 + '元',
-        ['book.room_price']: 1 * 10,
+        ['book.room_price_yuan']: 1 * study_price + '元',
+        ['book.room_price']: 1 * study_price,
         ['book.room_time']: 1
       })
     }
     if (e.detail.value == 2) {
       this.setData({
-        ['book.room_price_yuan']: 2 * 10 + '元',
-        ['book.room_price']: 2 * 10,
+        ['book.room_price_yuan']: 2 * study_price + '元',
+        ['book.room_price']: 2 * study_price,
         ['book.room_time']: 2
       })
     }
     if (e.detail.value == 3) {
       this.setData({
-        ['book.room_price_yuan']: 3 * 10 + '元',
-        ['book.room_price']: 3 * 10,
+        ['book.room_price_yuan']: 3 * study_price + '元',
+        ['book.room_price']: 3 * study_price,
         ['book.room_time']: 3
       })
     }
     if (e.detail.value == 4) {
       this.setData({
-        ['book.room_price_yuan']: 4 * 10 + '元',
-        ['book.room_price']: 4 * 10,
+        ['book.room_price_yuan']: 4 * study_price + '元',
+        ['book.room_price']: 4 * study_price,
         ['book.room_time']: 4
       })
     }
