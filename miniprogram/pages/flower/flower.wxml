@@ -1,7 +1,7 @@
 <!--pages/flower/flower.wxml-->
 <view id='father'>
 <view id='main' wx:if="{{isShow1}}">
-  <image src='../../images/flower-hua.png'></image>
+  <image class='flowers' src='../../images/1.3.png'></image>
 <view id='time'>
 <slider min='1' max="120" step="1" value='45' block-size='10' bindchange="listenSlider" block-color='#99cc99' backgroundColor='#fff' activeColor='#99cc99' bindchanging='bindValue' disabled='{{isAbled}}' />
 <text id='showTime'>{{min}}:{{sec}}</text>
@@ -13,7 +13,7 @@
   <view id='content'>
     <text>选择你想养的花</text>
     <view id='img'>
-      <image bindtap='click1' src='../../images/flower-hua.png'></image>
+      <image bindtap='click1' src='../../images/1.3.png'></image>
       <image bindtap='click2' src='../../images/tree.jpg'></image>
       <image bindtap='click3' src='../../images/tip-one.png'></image>
       <image bindtap='click4' src='../../images/two.png'></image>
