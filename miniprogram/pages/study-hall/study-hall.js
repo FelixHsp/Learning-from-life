@@ -84,13 +84,18 @@ Page({
         code: '101050101'
       },
     }).then(res => {
-      // console.log(res.result)
+      console.log(JSON.parse(res.result).data[0])
       // console.log(JSON.parse(res.result).weatherinfo)
       // city = JSON.parse(res.result).weatherinfo.city
       // temp = JSON.parse(res.result).weatherinfo.temp
         this.setData({
-          weather: JSON.parse(res.result).weatherinfo,
-          ['weather.temp']: [JSON.parse(res.result).weatherinfo.temp]+'℃'
+          ['weather.city']: JSON.parse(res.result).city,
+          ['weather.tem1']: JSON.parse(res.result).data[0].tem1,
+          ['weather.tem2']: JSON.parse(res.result).data[0].tem2+'-',
+          ['weather.date']: JSON.parse(res.result).data[0].date,
+          ['weather.week']: JSON.parse(res.result).data[0].week,
+          ['weather.wea']: JSON.parse(res.result).data[0].wea
+          // ['weather.temp']: JSON.parse(res.result).temp+'℃'
         })
       })
       .catch(console.error);

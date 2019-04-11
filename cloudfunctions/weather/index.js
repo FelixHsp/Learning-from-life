@@ -1,6 +1,6 @@
 var rq = require('request-promise')
 exports.main = (event, context) => {
-  var res = rq('http://www.weather.com.cn/data/sk/'+event.code+'.html').then( html => {
+  var res = rq('https://www.tianqiapi.com/api/?version=v1&cityid=' + event.code).then(html => {
     return html;
   })
   console.log(event);

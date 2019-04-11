@@ -7,14 +7,16 @@
   <image src='../../images/feiji_1.png'></image>
   <image src='../../images/feiji.png'></image>
   <view id='date'>
+    <!-- <view>{{weather.city}}</view>
     <view class='year'>{{nowYear}}</view>
     <view class='mou'>{{nowMou}}</view>
     <view class='day'>{{nowDay}}</view>
-    <view class='md'>/</view>
+    <view class='md'>/</view> -->
   </view>
   <view id='weather'>
     <view>{{weather.city}}</view>
-    <view>{{weather.temp}}</view>
+    <view>{{weather.date}}</view>
+    <view>{{weather.tem2}}{{weather.tem1}}</view>
   </view>
   <view id='content'>
     <view>书山有路勤为径</view>
