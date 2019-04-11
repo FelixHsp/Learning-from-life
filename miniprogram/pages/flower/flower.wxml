@@ -1,27 +1,37 @@
 <!--pages/flower/flower.wxml-->
 <view id='father'>
-<view id='main' wx:if="{{isShow1}}">
-  <image class='flowers' src='../../images/1.3.png'></image>
-<view id='time'>
-<slider min='1' max="120" step="1" value='45' block-size='10' bindchange="listenSlider" block-color='#99cc99' backgroundColor='#fff' activeColor='#99cc99' bindchanging='bindValue' disabled='{{isAbled}}' />
-<text id='showTime'>{{min}}:{{sec}}</text>
-<button bindtap='ok'>开始</button>
-</view>
-</view>
-
-<view id='mask' wx:if="{{isShow2}}">
-  <view id='content'>
-    <text>选择你想养的花</text>
-    <view id='img'>
-      <image bindtap='click1' src='../../images/1.3.png'></image>
-      <image bindtap='click2' src='../../images/tree.jpg'></image>
-      <image bindtap='click3' src='../../images/tip-one.png'></image>
-      <image bindtap='click4' src='../../images/two.png'></image>
-      <image bindtap='click5' src='../../images/self.png'></image>
-      <image bindtap='click6' src='../../images/pay.png'></image>
+  <view id='main' wx:if="{{isShow}}">
+    <view>
+      <text wx:if='{{!isFloShow}}'>开始养花吧</text>
+      <text wx:if='{{isFloShow}}'>专注学习吧</text>
     </view>
-    <button bindtap='start'>确定</button>
+
+    <image class='flowers' src='../../images/tips.png' wx:if='{{!isFloShow}}'></image>
+    <image class='flowers' src='{{picture}}' wx:if='{{isFloShow}}'></image>
+    <view id='time'>
+      <slider wx:if='{{!isFloShow}}' min='1' max="120" step="1" value='45' block-size='10' bindchange="listenSlider" block-color='#99cc99' backgroundColor='#fff' activeColor='#99cc99' bindchanging='bindValue' disabled='{{isAbled}}' />
+      <text wx:if='{{isFloShow}}'>剩余时间</text>
+      <text id='showTime'>{{min}}:{{sec}}</text>
+      <view>
+        <button wx:if="{{isBtnShow}}" bindtap='ok'>开始</button>
+        <button wx:if="{{!isBtnShow}}" bindtap='giveUp'>放弃</button>
+      </view>
+
+    </view>
+  </view>
+
+  <view id='mask' wx:if="{{!isShow}}">
+    <view id='content'>
+      <text>选择你想养的花</text>
+      <view id='img'>
+        <image bindtap='click1' src='../../images/1.3.png'></image>
+        <image bindtap='click2' src='../../images/tree.jpg'></image>
+        <image bindtap='click3' src='../../images/tip-one.png'></image>
+        <image bindtap='click4' src='../../images/two.png'></image>
+        <image bindtap='click5' src='../../images/self.png'></image>
+        <image bindtap='click6' src='../../images/pay.png'></image>
+      </view>
+      <button bindtap='start'>确定</button>
+    </view>
   </view>
 </view>
-</view>
-

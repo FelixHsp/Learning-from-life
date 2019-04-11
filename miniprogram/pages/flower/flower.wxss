@@ -8,10 +8,6 @@ page {
   position: relative;
 }
 
-#main {
-  /* display: none; */
-}
-
 #showTime {
   display: block;
   font-family: PingFangSC-Regular;
