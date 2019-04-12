@@ -1,6 +1,7 @@
 /* pages/flower/flower.wxss */
 
 page {
+  font-family:PingFangSC-Regular;
   background-color: #eee;
 }
 
@@ -52,4 +53,10 @@ page {
   position: relative;
   left: 50%;
   transform: translateX(-50%)
+}
+
+#headWord .word{
+  display: block;
+  text-align: center;
+  font-size: 25px;
 }

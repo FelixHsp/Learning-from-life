@@ -10,24 +10,10 @@ Page({
     min: 45, //分
     sec: "00", //秒
     isAbled: false,
-    isShow: true, //页面显隐
-    picture: '',   //图片选择
-    isBtnShow:true,  //按钮转换
-    isFloShow:false, //默认图片显隐
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
+    isShow: true, //主页面和选花页面显隐切换
+    picture: '', //图片选择
+    isBtnShow: true, //按钮转换
+    isFloShow: false, //默认图片显隐
   },
 
   /**
@@ -78,36 +64,45 @@ Page({
     })
   },
 
+  //开始按钮
   ok: function() {
     this.setData({
       isShow: false
     })
   },
 
-  
+  //倒计时
+  play: function() {
+    timer = setInterval(this.move, 1000);
+  },
 
+  //选花之后的确定按钮
   start: function(e) {
     this.setData({
       isAbled: true,
       isShow: true,
-      isFloShow:true,
-      isBtnShow:false,
-    })
-    this.move()
-    // this.minChange()
-    var timer = setInterval(this.move, 1000);
-
-  },
-  giveUp() {
-    this.setData({
-      min: 45, //分
-      sec: "00", //秒
+      isFloShow: true,
+      isBtnShow: false,
     })
     clearInterval(timer);
-    clearInterval(this.move)
-    // num = 5;
+    this.play()
+  },
+
+  //放弃按钮
+  giveUp() {
+    this.setData({
+      min: 45, //重置分
+      sec: "00", //重置秒
+      isBtnShow: true,
+      isAbled:false,
+      isFloShow:false
+    })
+    clearInterval(timer);
+    num = 5; //重置标志位
     return
   },
+
+  //定时器执行函数
   move() {
     console.log(this.data.min)
     //给秒补零
@@ -119,11 +114,11 @@ Page({
     })
 
     //当时间归零停止计时器
-    if (this.data.min == 0 & num == 0) {
-      clearInterval(timer)
+    if (this.data.min == 0 && num == 0) {
+      this.giveUp()
       return
-    } else if (num == 0) {
-      clearInterval(timer)
+    } 
+    if (num == 0) {
       this.setData({
         min: this.data.min - 1
       })
@@ -133,6 +128,8 @@ Page({
     //每秒递减
     num--
   },
+
+  //补零函数
   zeroFill(str, n) {
     //补零方法，str为数字字符串 n为需要的位数，不够补零
     if (str.length < n) {
@@ -140,6 +137,8 @@ Page({
     }
     return str
   },
+
+  //选花
   click1() {
     this.setData({
       picture: '../../images/hua.png'
