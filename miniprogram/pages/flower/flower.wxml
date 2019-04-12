@@ -1,15 +1,15 @@
 <!--pages/flower/flower.wxml-->
 <view id='father'>
   <view id='main' wx:if="{{isShow}}">
-    <view>
-      <text wx:if='{{!isFloShow}}'>开始养花吧</text>
-      <text wx:if='{{isFloShow}}'>专注学习吧</text>
+    <view id='headWord'>
+      <text class='word' wx:if='{{!isFloShow}}'>开始养花吧</text>
+      <text class='word' wx:if='{{isFloShow}}'>专注学习吧</text>
     </view>
 
     <image class='flowers' src='../../images/tips.png' wx:if='{{!isFloShow}}'></image>
     <image class='flowers' src='{{picture}}' wx:if='{{isFloShow}}'></image>
     <view id='time'>
-      <slider wx:if='{{!isFloShow}}' min='1' max="120" step="1" value='45' block-size='10' bindchange="listenSlider" block-color='#99cc99' backgroundColor='#fff' activeColor='#99cc99' bindchanging='bindValue' disabled='{{isAbled}}' />
+      <slider wx:if='{{!isFloShow}}' min='1' max="120" step="1" value='45' block-size='10' block-color='#99cc99' backgroundColor='#fff' activeColor='#99cc99' bindchanging='bindValue' disabled='{{isAbled}}' />
       <text wx:if='{{isFloShow}}'>剩余时间</text>
       <text id='showTime'>{{min}}:{{sec}}</text>
       <view>
