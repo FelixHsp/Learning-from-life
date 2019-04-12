@@ -18,7 +18,7 @@
     </view>
   </view>
   <view>
-    <view class='room-price'>每小时价格</view>
+    <view class='room-price'>所需费用</view>
     <view class='room-price-value'>{{book.room_price_yuan}}</view>
   </view>
   <view>

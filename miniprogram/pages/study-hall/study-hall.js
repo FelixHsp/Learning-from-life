@@ -1,4 +1,5 @@
 var util = require('../../utils/util.js');
+var oppid;
 Page({
 
   /**
@@ -104,6 +105,32 @@ Page({
       nowMou: util.formatMou(new Date()),
       nowDay: util.formatDay(new Date())
     });
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {},
+      success: res => {
+        oppid = res.result.openid
+        console.log(oppid)
+      },
+      fail: err => {
+        console.error('[云函数] [login] 调用失败', err)
+      }
+    });
+    const db = wx.cloud.database({});
+    const usercount = db.collection('usercount');
+    usercount.doc(oppid).get({
+      success: function (res) {
+        console.log(res)
+      },
+      fail: function(){
+        usercount.add({
+          data:{
+            usercount_count:'0'
+          }
+        })
+      }
+    })
+    
   },
   //添加数据库
   /* const db = wx.cloud.database({});

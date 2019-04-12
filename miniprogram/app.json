@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/flower/flower",
     "pages/study-hall/study-hall",
+    "pages/flower/flower",
     "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/study-hall/study-hall-reserve/study-hall-reserve",
-
+    "pages/study-hall/study-hall-detail/study-hall-detail",
     "pages/tips/tips",
     "pages/mine/mine",
     "pages/mine/about/about",

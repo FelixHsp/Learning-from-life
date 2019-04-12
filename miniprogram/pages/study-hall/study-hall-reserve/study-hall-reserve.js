@@ -1,5 +1,6 @@
 // pages/study hall/study hall-reserve/study hall-reserve.js
 var study_price;
+var oppid;
 Page({
 
   /**
@@ -13,8 +14,8 @@ Page({
       room_time:'',
       room_price_yuan:'',
       room_price:'',
-      user_name:'',
-      user_call:''
+      user_name:'1',
+      user_call:'1'
     }
   },
 
@@ -50,7 +51,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    
   },
 
   /**
@@ -87,7 +88,7 @@ Page({
         success(res) {
           study_price = res.data[0].studyhall_price
         }
-      })
+      });
   },
   bindtime: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -152,7 +153,39 @@ Page({
         }
       })
     }else{
-      console.log(this.data.book)
+      wx.cloud.callFunction({
+        name: 'login',
+        data: {},
+        success: res => {
+          oppid = res.result.openid
+          console.log(oppid)
+        },
+        fail: err => {
+          console.error('[云函数] [login] 调用失败', err)
+        }
+      });
+      const db = wx.cloud.database({});
+      const usercount = db.collection('usercount');
+      usercount.doc(oppid).get({
+        success: (res)=> {
+          if (res.data.usercount_count>=this.data.book.room_price){
+            // console.log('足够')
+            usercount.doc(oppid).update({
+              data:{
+                usercount_count: res.data.usercount_count - this.data.book.room_price
+              }
+            })
+          }else{
+            wx.showModal({
+              title: '提示',
+              content: '余额不足请充值',
+              success: function () {
+
+              }
+            })
+          }
+        }
+      })
     }
   }
 })
