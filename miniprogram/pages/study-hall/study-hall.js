@@ -1,4 +1,5 @@
 var util = require('../../utils/util.js');
+var time;
 var oppid;
 Page({
 
@@ -130,7 +131,17 @@ Page({
         })
       }
     })
-    
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'time',
+      // 传给云函数的参数
+      data: {
+        
+      },
+    }).then(res => {
+      // 计算时间戳
+      this.time = Date.parse(new Date(JSON.parse(res.result).sysTime2.replace(/-/g, '/'))) / 1000
+    })
   },
   //添加数据库
   /* const db = wx.cloud.database({});
@@ -160,162 +171,245 @@ Page({
   }, */
   click1: function() {
     const db = wx.cloud.database({});
-    const studyhalls = db.collection('studyhalls');
+    const studyhalls = db.collection('studyhall-reserve');
     studyhalls.where({
-        studyhall_name: '自习室一'
-      })
+      studyhallreserve_sid: '1'
+    })
       .get({
-        success(res) {
-          // console.log(res.data[0].studyhall_tag)
-          if (res.data[0].studyhall_tag == true) {
-            wx.navigateTo({
+        success: res=> {
+          /* console.log(typeof (res.data.reverse()[0].studyhallreserve_finishtime))
+          console.log(typeof(this.time)) */
+          if (res.data.reverse()[0].studyhallreserve_finishtime*1>=this.time*1){
+            wx.showModal({
+              title: '提示',
+              content: '当前自习室被占用',
+              success: function () {
+              }
+            })
+            // console.log(1)
+          } else{
+           wx.navigateTo({
               url: '../study-hall/study-hall-reserve/study-hall-reserve?id=1',
             })
+            // console.log(2)
           }
         }
       })
-    /* const db = wx.cloud.database({});
-    const table = db.collection('todos');
-    table.doc("f4cf49925cac6e5502ed8b1e42338136").get({
-      success: function (res) {
-        console.log(res)
-      }
-    }) */
   },
-  click2: function() {
+  click2: function () {
     const db = wx.cloud.database({});
-    const studyhalls = db.collection('studyhalls');
+    const studyhalls = db.collection('studyhall-reserve');
     studyhalls.where({
-        studyhall_name: '自习室二'
-      })
+      studyhallreserve_sid: '2'
+    })
       .get({
-        success(res) {
-          // console.log(res.data[0].studyhall_tag)
-          if (res.data[0].studyhall_tag == true) {
+        success: res => {
+          /* console.log(typeof (res.data.reverse()[0].studyhallreserve_finishtime))
+          console.log(typeof(this.time)) */
+          if (res.data.reverse()[0].studyhallreserve_finishtime * 1 >= this.time * 1) {
+            wx.showModal({
+              title: '提示',
+              content: '当前自习室被占用',
+              success: function () {
+              }
+            })
+            // console.log(1)
+          } else {
             wx.navigateTo({
               url: '../study-hall/study-hall-reserve/study-hall-reserve?id=2',
             })
+            // console.log(2)
           }
         }
       })
   },
-  click3: function() {
+  click3: function () {
     const db = wx.cloud.database({});
-    const studyhalls = db.collection('studyhalls');
+    const studyhalls = db.collection('studyhall-reserve');
     studyhalls.where({
-      studyhall_name: '自习室三'
+      studyhallreserve_sid: '3'
     })
       .get({
-        success(res) {
-          // console.log(res.data[0].studyhall_tag)
-          if (res.data[0].studyhall_tag == true) {
+        success: res => {
+          /* console.log(typeof (res.data.reverse()[0].studyhallreserve_finishtime))
+          console.log(typeof(this.time)) */
+          if (res.data.reverse()[0].studyhallreserve_finishtime * 1 >= this.time * 1) {
+            wx.showModal({
+              title: '提示',
+              content: '当前自习室被占用',
+              success: function () {
+              }
+            })
+            // console.log(1)
+          } else {
             wx.navigateTo({
               url: '../study-hall/study-hall-reserve/study-hall-reserve?id=3',
             })
+            // console.log(2)
           }
         }
       })
   },
-  click4: function() {
+  click4: function () {
     const db = wx.cloud.database({});
-    const studyhalls = db.collection('studyhalls');
+    const studyhalls = db.collection('studyhall-reserve');
     studyhalls.where({
-      studyhall_name: '自习室四'
+      studyhallreserve_sid: '4'
     })
       .get({
-        success(res) {
-          // console.log(res.data[0].studyhall_tag)
-          if (res.data[0].studyhall_tag == true) {
+        success: res => {
+          /* console.log(typeof (res.data.reverse()[0].studyhallreserve_finishtime))
+          console.log(typeof(this.time)) */
+          if (res.data.reverse()[0].studyhallreserve_finishtime * 1 >= this.time * 1) {
+            wx.showModal({
+              title: '提示',
+              content: '当前自习室被占用',
+              success: function () {
+              }
+            })
+            // console.log(1)
+          } else {
             wx.navigateTo({
               url: '../study-hall/study-hall-reserve/study-hall-reserve?id=4',
             })
+            // console.log(2)
           }
         }
       })
   },
-  click5: function() {
+  click5: function () {
     const db = wx.cloud.database({});
-    const studyhalls = db.collection('studyhalls');
+    const studyhalls = db.collection('studyhall-reserve');
     studyhalls.where({
-      studyhall_name: '自习室五'
+      studyhallreserve_sid: '5'
     })
       .get({
-        success(res) {
-          // console.log(res.data[0].studyhall_tag)
-          if (res.data[0].studyhall_tag == true) {
+        success: res => {
+          /* console.log(typeof (res.data.reverse()[0].studyhallreserve_finishtime))
+          console.log(typeof(this.time)) */
+          if (res.data.reverse()[0].studyhallreserve_finishtime * 1 >= this.time * 1) {
+            wx.showModal({
+              title: '提示',
+              content: '当前自习室被占用',
+              success: function () {
+              }
+            })
+            // console.log(1)
+          } else {
             wx.navigateTo({
               url: '../study-hall/study-hall-reserve/study-hall-reserve?id=5',
             })
+            // console.log(2)
           }
         }
       })
   },
-  click6: function() {
+  click6: function () {
     const db = wx.cloud.database({});
-    const studyhalls = db.collection('studyhalls');
+    const studyhalls = db.collection('studyhall-reserve');
     studyhalls.where({
-      studyhall_name: '自习室六'
+      studyhallreserve_sid: '6'
     })
       .get({
-        success(res) {
-          // console.log(res.data[0].studyhall_tag)
-          if (res.data[0].studyhall_tag == true) {
+        success: res => {
+          /* console.log(typeof (res.data.reverse()[0].studyhallreserve_finishtime))
+          console.log(typeof(this.time)) */
+          if (res.data.reverse()[0].studyhallreserve_finishtime * 1 >= this.time * 1) {
+            wx.showModal({
+              title: '提示',
+              content: '当前自习室被占用',
+              success: function () {
+              }
+            })
+            // console.log(1)
+          } else {
             wx.navigateTo({
               url: '../study-hall/study-hall-reserve/study-hall-reserve?id=6',
             })
+            // console.log(2)
           }
         }
       })
   },
-  click7: function() {
+  click7: function () {
     const db = wx.cloud.database({});
-    const studyhalls = db.collection('studyhalls');
+    const studyhalls = db.collection('studyhall-reserve');
     studyhalls.where({
-      studyhall_name: '自习室七'
+      studyhallreserve_sid: '7'
     })
       .get({
-        success(res) {
-          // console.log(res.data[0].studyhall_tag)
-          if (res.data[0].studyhall_tag == true) {
+        success: res => {
+          /* console.log(typeof (res.data.reverse()[0].studyhallreserve_finishtime))
+          console.log(typeof(this.time)) */
+          if (res.data.reverse()[0].studyhallreserve_finishtime * 1 >= this.time * 1) {
+            wx.showModal({
+              title: '提示',
+              content: '当前自习室被占用',
+              success: function () {
+              }
+            })
+            // console.log(1)
+          } else {
             wx.navigateTo({
               url: '../study-hall/study-hall-reserve/study-hall-reserve?id=7',
             })
+            // console.log(2)
           }
         }
       })
   },
-  click8: function() {
+  click8: function () {
     const db = wx.cloud.database({});
-    const studyhalls = db.collection('studyhalls');
+    const studyhalls = db.collection('studyhall-reserve');
     studyhalls.where({
-      studyhall_name: '自习室八'
+      studyhallreserve_sid: '8'
     })
       .get({
-        success(res) {
-          // console.log(res.data[0].studyhall_tag)
-          if (res.data[0].studyhall_tag == true) {
+        success: res => {
+          /* console.log(typeof (res.data.reverse()[0].studyhallreserve_finishtime))
+          console.log(typeof(this.time)) */
+          if (res.data.reverse()[0].studyhallreserve_finishtime * 1 >= this.time * 1) {
+            wx.showModal({
+              title: '提示',
+              content: '当前自习室被占用',
+              success: function () {
+              }
+            })
+            // console.log(1)
+          } else {
             wx.navigateTo({
               url: '../study-hall/study-hall-reserve/study-hall-reserve?id=8',
             })
+            // console.log(2)
           }
         }
       })
   },
-  click9: function() {
+  click9: function () {
     const db = wx.cloud.database({});
-    const studyhalls = db.collection('studyhalls');
+    const studyhalls = db.collection('studyhall-reserve');
     studyhalls.where({
-      studyhall_name: '自习室九'
+      studyhallreserve_sid: '9'
     })
       .get({
-        success(res) {
-          // console.log(res.data[0].studyhall_tag)
-          if (res.data[0].studyhall_tag == true) {
+        success: res => {
+          /* console.log(typeof (res.data.reverse()[0].studyhallreserve_finishtime))
+          console.log(typeof(this.time)) */
+          if (res.data.reverse()[0].studyhallreserve_finishtime * 1 >= this.time * 1) {
+            wx.showModal({
+              title: '提示',
+              content: '当前自习室被占用',
+              success: function () {
+              }
+            })
+            // console.log(1)
+          } else {
             wx.navigateTo({
               url: '../study-hall/study-hall-reserve/study-hall-reserve?id=9',
             })
+            // console.log(2)
           }
         }
       })
-  }
+  },
 })
