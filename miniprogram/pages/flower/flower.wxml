@@ -24,7 +24,7 @@
     <view id='content'>
       <text>选择你想养的花</text>
       <view id='img'>
-        <image bindtap='click1' src='../../images/1.3.png'></image>
+        <image bindtap='click1' src='../../images/hua.png'></image>
         <image bindtap='click2' src='../../images/tree.jpg'></image>
         <image bindtap='click3' src='../../images/tip-one.png'></image>
         <image bindtap='click4' src='../../images/two.png'></image>

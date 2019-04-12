@@ -142,7 +142,7 @@ Page({
   },
   click1() {
     this.setData({
-      picture: '../../images/1.3.png'
+      picture: '../../images/hua.png'
     })
   },
   click2() {
