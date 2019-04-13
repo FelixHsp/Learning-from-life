@@ -3,6 +3,9 @@
   <view class='list-item'>
     <image class='img-pay' src='../../../images/pay.png'/>
     <text class='title'>{{itemName.title}}</text>
-    <text class='pay'>{{itemName.pay}}</text>
+    <view class='left'>
+    <view class='pay'>{{itemName.pay}}</view>
+    <view class='time'>{{itemName.time}}</view>
+    </view>
   </view>
 </view>

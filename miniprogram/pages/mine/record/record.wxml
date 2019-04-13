@@ -2,9 +2,9 @@
 <view wx:for="{{list}}" wx:for-index="idx" wx:for-item="itemName" id="list">
   <view class='list-item'>
     <text class='title'>{{itemName.title}}</text>
-    <text class='timer'>
-      <text class='time'>{{itemName.time}}</text>
-      <text class='cost'>{{itemName.cost}}</text>
-    </text>
+    <view class='timer'>
+      <view class='time'>{{itemName.time}}</view>
+      <view class='cost'>学习时长:{{itemName.spend}}</view>
+    </view>
   </view>
 </view>

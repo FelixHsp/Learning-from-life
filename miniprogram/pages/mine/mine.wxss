@@ -30,27 +30,14 @@
 .top-content .user-name{
   color: #fff;
 }
-.list .pay{
+.list .pay,.record,.about ,.wallet{
   height: 50px;
   font-size: 20px;
   line-height: 50px;
   border-bottom: 2px solid #ccc;
   margin: 0 20px;
 }
-.list .record{
-  height: 50px;
-  font-size: 20px;
-  line-height: 50px;
-  border-bottom: 2px solid #ccc;
-  margin: 0 20px;
-}
-.list .about{
-  height: 50px;
-  font-size: 20px;
-  line-height: 50px;
-  border-bottom: 2px solid #ccc;
-  margin: 0 20px;
-}
+
 .img-bill{
   width: 20px;
   height: 20px;
@@ -62,6 +49,11 @@
   background-color: #99CC99;
 }
 .img-about{
+  width: 20px;
+  height: 20px;
+  background-color: #99CC99;
+}
+.img-wallet{
   width: 20px;
   height: 20px;
   background-color: #99CC99;

@@ -6,9 +6,9 @@ Page({
    */
   data: {
     list: [{
-      title: "学习物理", pay: "-5.80", time: "今天8:50"
-      , cost: 3
-    }, { title: "学习六级", pay: "-5.80", time: "今天8:50", cost: 3 }, { title: "学习线代", pay: "-5.80", time: "今天8:50", cost: 3 }, { title: "学习高数", pay: "-5.80", time: "今天8:50", cost: 3 }, { title: "学习雅思", pay: "-5.80", time: "今天8:50", cost: 3 }, { title: "学习数据结构", pay: "-5.80", time: "今天8:50", cost: 3 }]
+      title: "自习室1", pay: "-5.80", time: "今天8:50"
+      , cost: 3,spend:"半小时"
+    }, { title: "自习室2", pay: "-5.80", time: "今天8:50", cost: 3, spend: "一小时" }, { title: "自习室3", pay: "-5.80", time: "今天8:50", cost: 3, spend: "一小时" }, { title: "自习室4", pay: "-5.80", time: "今天8:50", cost: 3, spend: "一小时" }, { title: "自习室5", pay: "-5.80", time: "今天8:50", cost: 3, spend: "一小时" }, { title: "自习室6", pay: "-5.80", time: "今天8:50", cost: 3, spend: "一小时"}]
   },
 
   /**

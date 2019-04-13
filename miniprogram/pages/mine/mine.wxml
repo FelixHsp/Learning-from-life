@@ -19,6 +19,11 @@
     <image src='../../images/record.png' class='img-record'></image>
     学习记录
     </view>
+    <view class='wallet' bindtap='moveWallet'>
+    <image src='../../images/wallet.png'
+    class='img-wallet'></image>
+    我的钱包
+    </view>
     <view class='about' bindtap='moveAbout'>
     <image src='../../images/about.png'
     class='img-about'></image>

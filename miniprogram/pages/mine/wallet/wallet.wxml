@@ -1,0 +1,17 @@
+<!--pages/mine/wallet/wallet.wxml-->
+<view class='top-bar'>
+  <view class='wraper'>
+    <view class='last'>可用积分:</view>
+    <view class='record'>{{record}}</view>
+    <view class='bill'>余额:{{bill}}</view>
+  </view>
+</view>
+<view class='list' wx:for="{{list}}" wx:for-index="idx" wx:for-item="itemName">
+  <view class='list-item'>
+    <view class='list-record'>{{itemName.record}}</view>
+    <view class='list-time'>{{itemName.time}}</view>
+  </view>
+</view>
+<view class='change' bindtap="change">
+将积分转成余额
+</view>

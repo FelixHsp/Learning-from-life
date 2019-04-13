@@ -1,12 +1,18 @@
-// pages/mine/bill/bill.js
+// pages/mine/wallet/wallet.js
 Page({
-  data: {
-    list: [{
-      title: "自习室1", pay: "-5.80", time: "今天8:50"
-      , cost: 3
-    }, { title: "自习室2", pay: "-5.80", time: "今天8:50", cost: 3 }, { title: "自习室3", pay: "-5.80", time: "今天8:50", cost: 3 }, { title: "自习室4", pay: "-5.80", time: "今天8:50", cost: 3 }, { title: "自习室5", pay: "-5.80", time: "今天8:50", cost: 3 }, { title: "自习室6", pay: "-5.80", time: "今天8:50", cost: 3 }]
-  },
 
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    record:1000,
+    bill:0,
+    list: [{ record: 1000, time: "8:30" }, { record: 1000, time: "8:30" }, { record: 1000, time: "8:30" }, { record: 1000, time: "8:30" }, { record: 1000, time: "8:30" }, { record: 1000, time: "8:30" }]
+  },
+  change(){
+    bill = record / 100;
+    record=0;
+  },
   /**
    * 生命周期函数--监听页面加载
    */
