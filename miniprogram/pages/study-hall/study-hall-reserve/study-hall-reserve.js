@@ -177,7 +177,7 @@ Page({
       const db = wx.cloud.database({});
       const usercount = db.collection('usercount');
       usercount.where({
-        _openid: 'oRlb64sNiVQZll5IeRRUfoLzEZB0'
+        _openid: oppid
       }).get().then( res=> {
           if (res.data[0].usercount_count>=this.data.book.room_price){
             console.log(res.data[0])
@@ -259,7 +259,7 @@ Page({
                   }
                 })
             })
-          } else if ((this.data.book.room_price-1 >= res.data.usercount_count)){
+          } else{
             wx.showModal({
               title: '提示',
               content: '余额不足请充值',
