@@ -1,0 +1,53 @@
+/* pages/mine/wallet/wallet.wxss */
+.top-bar{
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background-color:#99CC99;
+}
+.top-bar .wraper{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+.top-bar .last{
+  margin-left: 10px;
+}
+.top-bar .record{
+  font-size: 40px;
+}
+.top-bar .bill{
+  margin-left: 10px;
+}
+.change{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  background-color: #99CC99;
+}
+.list{
+  position: absolute;
+  top:200px;
+  left: 10px;
+  right: 10px;
+}
+.list .list-item{
+  height: 60px;
+  line-height: 60px;
+  margin-left:10px; 
+  margin-right:10px;
+  border-bottom: 1px solid #ccc;
+}
+.list .list-item .list-record{
+  float:left;
+}
+.list .list-item .list-time{
+  float:right;
+}
