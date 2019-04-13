@@ -1,6 +1,5 @@
 // pages/flower/flower.js
 var num = 60 //计时器计数标志
-var timer = '' //计时器名字
 Page({
 
   /**
@@ -14,51 +13,16 @@ Page({
     picture: '', //图片选择
     isBtnShow: true, //按钮转换
     isFloShow: false, //默认图片显隐
-    _num:0
+    _num: 0, //选择花的时候点上会有特殊显示的标识位
+    loading: '', //定时器
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
+  //从前台切到后台的时候重置计时器
   onHide: function() {
-
+    this.giveUp()
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  },
-
+  //滑动silder时间数字改变
   bindValue: function(e) {
     this.setData({
       min: e.detail.value
@@ -74,7 +38,10 @@ Page({
 
   //倒计时
   play: function() {
-    timer = setInterval(this.move, 1000);
+    this.setData({
+      loading: setInterval(this.move, 1000)
+    })
+    // timer = setInterval(this.move, 1000);
   },
 
   //选花之后的确定按钮
@@ -84,9 +51,10 @@ Page({
       isShow: true,
       isFloShow: true,
       isBtnShow: false,
-      min:this.data.min - 1
+      min: this.data.min - 1,
+      // _crl: 1
     })
-    clearInterval(timer);
+    clearInterval(this.data.loading);
     this.play()
   },
 
@@ -96,10 +64,11 @@ Page({
       min: 45, //重置分
       sec: "00", //重置秒
       isBtnShow: true,
-      isAbled:false,
-      isFloShow:false
+      isAbled: false,
+      isFloShow: false,
+      // _crl: 0
     })
-    clearInterval(timer);
+    clearInterval(this.data.loading);
     num = 60; //重置标志位
     return
   },
@@ -107,10 +76,10 @@ Page({
   //定时器执行函数
   move() {
     console.log(this.data.min)
+
     //给秒补零
     var strS = this.zeroFill('' + parseInt(num % 60), 2)
 
-    //赋值给text内容
     this.setData({
       sec: strS,
     })
@@ -119,7 +88,9 @@ Page({
     if (this.data.min == 0 && num == 0) {
       this.giveUp()
       return
-    } 
+    }
+
+    //秒到0了分-1
     if (num == 0) {
       this.setData({
         min: this.data.min - 1
@@ -141,46 +112,46 @@ Page({
   },
 
   //选花
-  click1:function(e) {
+  click1: function(e) {
     this.setData({
       picture: '../../images/hua.png',
       _num: e.target.dataset.num
     })
 
   },
-  click2:function(e) {
+  click2: function(e) {
     this.setData({
       picture: '../../images/tree.jpg',
       _num: e.target.dataset.num
 
     })
   },
-  click3:function (e) {
+  click3: function(e) {
     this.setData({
       picture: '../../images/tip-one.png',
       _num: e.target.dataset.num
 
     })
   },
-  click4:function(e){
+  click4: function(e) {
     this.setData({
       picture: '../../images/two.png',
       _num: e.target.dataset.num
 
     })
   },
-  click5:function(e){
+  click5: function(e) {
     this.setData({
       picture: '../../images/self.png',
       _num: e.target.dataset.num
 
     })
   },
-  click6:function(e) {
+  click6: function(e) {
     this.setData({
       picture: '../../images/pay.png',
       _num: e.target.dataset.num
 
     })
-  }
+  },
 })
