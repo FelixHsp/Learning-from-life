@@ -1,5 +1,5 @@
 // pages/flower/flower.js
-var num = 5 //计时器计数标志
+var num = 60 //计时器计数标志
 var timer = '' //计时器名字
 Page({
 
@@ -14,6 +14,7 @@ Page({
     picture: '', //图片选择
     isBtnShow: true, //按钮转换
     isFloShow: false, //默认图片显隐
+    _num:0
   },
 
   /**
@@ -83,6 +84,7 @@ Page({
       isShow: true,
       isFloShow: true,
       isBtnShow: false,
+      min:this.data.min - 1
     })
     clearInterval(timer);
     this.play()
@@ -98,7 +100,7 @@ Page({
       isFloShow:false
     })
     clearInterval(timer);
-    num = 5; //重置标志位
+    num = 60; //重置标志位
     return
   },
 
@@ -122,7 +124,7 @@ Page({
       this.setData({
         min: this.data.min - 1
       })
-      num = 5
+      num = 60
       return
     }
     //每秒递减
@@ -139,34 +141,46 @@ Page({
   },
 
   //选花
-  click1() {
+  click1:function(e) {
     this.setData({
-      picture: '../../images/hua.png'
+      picture: '../../images/hua.png',
+      _num: e.target.dataset.num
+    })
+
+  },
+  click2:function(e) {
+    this.setData({
+      picture: '../../images/tree.jpg',
+      _num: e.target.dataset.num
+
     })
   },
-  click2() {
+  click3:function (e) {
     this.setData({
-      picture: '../../images/tree.jpg'
+      picture: '../../images/tip-one.png',
+      _num: e.target.dataset.num
+
     })
   },
-  click3() {
+  click4:function(e){
     this.setData({
-      picture: '../../images/tip-one.png'
+      picture: '../../images/two.png',
+      _num: e.target.dataset.num
+
     })
   },
-  click4() {
+  click5:function(e){
     this.setData({
-      picture: '../../images/two.png'
+      picture: '../../images/self.png',
+      _num: e.target.dataset.num
+
     })
   },
-  click5() {
+  click6:function(e) {
     this.setData({
-      picture: '../../images/self.png'
-    })
-  },
-  click6() {
-    this.setData({
-      picture: '../../images/pay.png'
+      picture: '../../images/pay.png',
+      _num: e.target.dataset.num
+
     })
   }
 })
