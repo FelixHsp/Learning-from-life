@@ -9,7 +9,8 @@ Page({
   data: {
     nowYear: '',
     nowMou: '',
-    nowDay: ''
+    nowDay: '',
+    retationtime:''
   },
 
   /**
@@ -102,9 +103,9 @@ Page({
     })
       .catch(console.error);
     this.setData({
-      nowYear: util.formatYear(new Date()),
+      /* nowYear: util.formatYear(new Date()),
       nowMou: util.formatMou(new Date()),
-      nowDay: util.formatDay(new Date())
+      nowDay: util.formatDay(new Date()) */
     });
     wx.cloud.callFunction({
       name: 'login',
@@ -179,10 +180,13 @@ Page({
         success: res => {
           /* console.log(typeof (res.data.reverse()[0].studyhallreserve_finishtime))
           console.log(typeof(this.time)) */
-          if (res.data.reverse()[0].studyhallreserve_finishtime * 1 >= this.time * 1) {
+          this.data.retationtime = res.data.reverse()[0].studyhallreserve_finishtime
+          // console.log(this.data.retationtime)
+          // console.log(util.formatTime(this.data.retationtime, 'Y/M/D h:m:s'));
+          if (this.data.retationtime * 1 >= this.time * 1) {
             wx.showModal({
               title: '提示',
-              content: '当前自习室被占用',
+              content: '当前自习室被占用,' + util.formatTime(this.data.retationtime, 'Y/M/D h:m:s') + '可预订',
               success: function () {
               }
             })
@@ -206,10 +210,13 @@ Page({
         success: res => {
           /* console.log(typeof (res.data.reverse()[0].studyhallreserve_finishtime))
           console.log(typeof(this.time)) */
-          if (res.data.reverse()[0].studyhallreserve_finishtime * 1 >= this.time * 1) {
+          this.data.retationtime = res.data.reverse()[0].studyhallreserve_finishtime
+          // console.log(this.data.retationtime)
+          // console.log(util.formatTime(this.data.retationtime, 'Y/M/D h:m:s'));
+          if (this.data.retationtime * 1 >= this.time * 1) {
             wx.showModal({
               title: '提示',
-              content: '当前自习室被占用',
+              content: '当前自习室被占用,' + util.formatTime(this.data.retationtime, 'Y/M/D h:m:s') + '可预订',
               success: function () {
               }
             })
@@ -233,10 +240,13 @@ Page({
         success: res => {
           /* console.log(typeof (res.data.reverse()[0].studyhallreserve_finishtime))
           console.log(typeof(this.time)) */
-          if (res.data.reverse()[0].studyhallreserve_finishtime * 1 >= this.time * 1) {
+          this.data.retationtime = res.data.reverse()[0].studyhallreserve_finishtime
+          // console.log(this.data.retationtime)
+          // console.log(util.formatTime(this.data.retationtime, 'Y/M/D h:m:s'));
+          if (this.data.retationtime * 1 >= this.time * 1) {
             wx.showModal({
               title: '提示',
-              content: '当前自习室被占用',
+              content: '当前自习室被占用,' + util.formatTime(this.data.retationtime, 'Y/M/D h:m:s') + '可预订',
               success: function () {
               }
             })
@@ -260,10 +270,13 @@ Page({
         success: res => {
           /* console.log(typeof (res.data.reverse()[0].studyhallreserve_finishtime))
           console.log(typeof(this.time)) */
-          if (res.data.reverse()[0].studyhallreserve_finishtime * 1 >= this.time * 1) {
+          this.data.retationtime = res.data.reverse()[0].studyhallreserve_finishtime
+          // console.log(this.data.retationtime)
+          // console.log(util.formatTime(this.data.retationtime, 'Y/M/D h:m:s'));
+          if (this.data.retationtime * 1 >= this.time * 1) {
             wx.showModal({
               title: '提示',
-              content: '当前自习室被占用',
+              content: '当前自习室被占用,' + util.formatTime(this.data.retationtime, 'Y/M/D h:m:s') + '可预订',
               success: function () {
               }
             })
@@ -287,10 +300,13 @@ Page({
         success: res => {
           /* console.log(typeof (res.data.reverse()[0].studyhallreserve_finishtime))
           console.log(typeof(this.time)) */
-          if (res.data.reverse()[0].studyhallreserve_finishtime * 1 >= this.time * 1) {
+          this.data.retationtime = res.data.reverse()[0].studyhallreserve_finishtime
+          // console.log(this.data.retationtime)
+          // console.log(util.formatTime(this.data.retationtime, 'Y/M/D h:m:s'));
+          if (this.data.retationtime * 1 >= this.time * 1) {
             wx.showModal({
               title: '提示',
-              content: '当前自习室被占用',
+              content: '当前自习室被占用,' + util.formatTime(this.data.retationtime, 'Y/M/D h:m:s') + '可预订',
               success: function () {
               }
             })
@@ -314,10 +330,13 @@ Page({
         success: res => {
           /* console.log(typeof (res.data.reverse()[0].studyhallreserve_finishtime))
           console.log(typeof(this.time)) */
-          if (res.data.reverse()[0].studyhallreserve_finishtime * 1 >= this.time * 1) {
+          this.data.retationtime = res.data.reverse()[0].studyhallreserve_finishtime
+          // console.log(this.data.retationtime)
+          // console.log(util.formatTime(this.data.retationtime, 'Y/M/D h:m:s'));
+          if (this.data.retationtime * 1 >= this.time * 1) {
             wx.showModal({
               title: '提示',
-              content: '当前自习室被占用',
+              content: '当前自习室被占用,' + util.formatTime(this.data.retationtime, 'Y/M/D h:m:s') + '可预订',
               success: function () {
               }
             })
@@ -341,10 +360,13 @@ Page({
         success: res => {
           /* console.log(typeof (res.data.reverse()[0].studyhallreserve_finishtime))
           console.log(typeof(this.time)) */
-          if (res.data.reverse()[0].studyhallreserve_finishtime * 1 >= this.time * 1) {
+          this.data.retationtime = res.data.reverse()[0].studyhallreserve_finishtime
+          // console.log(this.data.retationtime)
+          // console.log(util.formatTime(this.data.retationtime, 'Y/M/D h:m:s'));
+          if (this.data.retationtime * 1 >= this.time * 1) {
             wx.showModal({
               title: '提示',
-              content: '当前自习室被占用',
+              content: '当前自习室被占用,' + util.formatTime(this.data.retationtime, 'Y/M/D h:m:s') + '可预订',
               success: function () {
               }
             })
@@ -368,10 +390,13 @@ Page({
         success: res => {
           /* console.log(typeof (res.data.reverse()[0].studyhallreserve_finishtime))
           console.log(typeof(this.time)) */
-          if (res.data.reverse()[0].studyhallreserve_finishtime * 1 >= this.time * 1) {
+          this.data.retationtime = res.data.reverse()[0].studyhallreserve_finishtime
+          // console.log(this.data.retationtime)
+          // console.log(util.formatTime(this.data.retationtime, 'Y/M/D h:m:s'));
+          if (this.data.retationtime * 1 >= this.time * 1) {
             wx.showModal({
               title: '提示',
-              content: '当前自习室被占用',
+              content: '当前自习室被占用,' + util.formatTime(this.data.retationtime, 'Y/M/D h:m:s') + '可预订',
               success: function () {
               }
             })
@@ -395,10 +420,13 @@ Page({
         success: res => {
           /* console.log(typeof (res.data.reverse()[0].studyhallreserve_finishtime))
           console.log(typeof(this.time)) */
-          if (res.data.reverse()[0].studyhallreserve_finishtime * 1 >= this.time * 1) {
+          this.data.retationtime = res.data.reverse()[0].studyhallreserve_finishtime
+          // console.log(this.data.retationtime)
+          // console.log(util.formatTime(this.data.retationtime, 'Y/M/D h:m:s'));
+          if (this.data.retationtime * 1 >= this.time * 1) {
             wx.showModal({
               title: '提示',
-              content: '当前自习室被占用',
+              content: '当前自习室被占用,' + util.formatTime(this.data.retationtime, 'Y/M/D h:m:s') + '可预订',
               success: function () {
               }
             })
