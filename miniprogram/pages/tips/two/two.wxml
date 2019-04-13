@@ -1,2 +1,34 @@
 <!--miniprogram/pages/tips/two/two.wxml-->
-<text>miniprogram/pages/tips/two/two.wxml</text>
+<view wx:for="{{array}}" id="module"> 
+
+<view class='plan'>
+{{item.content}}
+</view>
+
+<view class='right' bindtap='del'>
+删除札记
+</view>
+
+<view id='left' bindtap='showDialogBtn'>
+编辑札记
+</view>
+  <!--弹窗-->
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="modal-title">编辑札记</view>
+    <view class="modal-content">
+      <view class="modal-input">
+        <input placeholder-class="input-holder" bindinput="inputChange" class="input"></input>
+      </view>
+      
+    </view>
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+      <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+    </view>
+  </view>
+
+
+
+
+</view>

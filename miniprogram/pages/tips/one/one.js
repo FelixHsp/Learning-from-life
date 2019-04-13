@@ -8,10 +8,64 @@ Page({
     array:[{
       content:'英语单词X100'
     },{
-      content:'数学题x5'
-    }]
+      content:'数学题X5'
+    },],
+    showDialog: false,
+    items: [
+      { name: '已完成', value: '已完成' },
+      { name: '未完成', value: '未完成' },]
   },
-
+  /*点击变色*/
+  click: function (e) {
+    var id = e.currentTarget.dataset.id
+    var that = this
+    that.setData({
+      id: id
+    })
+  },
+  onLoad: function (options) {
+    var that = this
+    that.setData({
+      value: 'show'
+    })
+  },
+  radioChange: function (e) {
+    console.log('radio发生change事件，携带value值为：', e.detail.value)
+    var that = this
+    that.setData({
+      value: e.detail.value
+    })
+    console.log(this.data.value)
+  },
+  toggleDialog() {
+    this.setData({
+      showDialog: !this.data.showDialog
+    });
+  },
+  freeBack: function () {
+    var that = this
+    if (this.data.value == 'show') {
+      wx.showModal({
+        title: '提示',
+        content: '你没有选择任何内容',
+      })
+    }
+    that.setData({
+      showDialog: !this.data.showDialog
+    })
+  },
+  freetoBack: function () {
+    var that = this
+    wx.showModal({
+      title: '提示',
+      content: '你没有选择任何内容',
+    })
+    that.setData({
+      showDialog: !this.data.showDialog,
+      value: 'show',
+      checked: false,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -66,5 +120,72 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+//添加计划弹窗
+
+  /**
+     * 弹窗
+     */
+  showDialogBtn: function () {
+
+    this.setData({
+      showModal: true
+    })
+  },
+  /**
+   * 弹出框蒙层截断touchmove事件
+   */
+  preventTouchMove: function () {
+  },
+  /**
+   * 隐藏模态对话框
+   */
+  hideModal: function () {
+    this.setData({
+      showModal: false
+    });
+  },
+  /**
+   * 对话框取消按钮点击事件
+   */
+  onCancel: function () {
+    this.hideModal();
+  },
+  /**
+   * 对话框确认按钮点击事件
+   */
+  onConfirm: function () {
+    wx.showToast({
+      title: '添加成功',
+      icon: 'success',
+      duration: 2000
+    })
+    this.hideModal();
+  },
+
+
+//删除计划
+  del: function() {
+    wx.showModal({
+      title: '提示',
+      content: '是否删除计划',
+      success: function (res) {
+        if (res.confirm) {
+          wx.showToast({
+            title: '删除成功',
+            icon: 'success',
+            duration: 2000
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+
+
+
+
+
 })

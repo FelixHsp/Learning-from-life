@@ -29,4 +29,5 @@ page{
 }
 .one-text,.two-text{
   font-family: PingFangSC-Regular;
+  color: #99CC99;
 }
