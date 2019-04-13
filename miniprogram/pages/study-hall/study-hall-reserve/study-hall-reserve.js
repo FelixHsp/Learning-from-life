@@ -5,6 +5,10 @@ var time;
 var rid;
 var money;
 var time2;
+if (getCurrentPages().length != 0) {
+  //刷新当前页面的数据
+  getCurrentPages()[getCurrentPages().length - 1].onLoad()
+}
 Page({
 
   /**
@@ -172,11 +176,12 @@ Page({
       //防止两个用户同时进到预定页面，预定出错
       const db = wx.cloud.database({});
       const usercount = db.collection('usercount');
-      usercount.doc(oppid).get({
-        success: (res)=> {
-          if (res.data.usercount_count>=this.data.book.room_price){
-            console.log(1)
-            this.money = res.data.usercount_count
+      usercount.where({
+        _openid: 'oRlb64sNiVQZll5IeRRUfoLzEZB0'
+      }).get().then( res=> {
+          if (res.data[0].usercount_count>=this.data.book.room_price){
+            console.log(res.data[0])
+            this.money = res.data[0].usercount_count
             wx.cloud.callFunction({
               // 云函数名称
               name: 'time',
@@ -244,7 +249,9 @@ Page({
                               delta: 1
                             })
                           } else if (res.cancel) {
-                            console.log('2')
+                            wx.navigateBack({
+                              delta: 1
+                            })
                           }
                         }
                       })
@@ -261,7 +268,6 @@ Page({
               }
             })
           }
-        }
       })
     }
   }
