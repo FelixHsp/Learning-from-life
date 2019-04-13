@@ -1,5 +1,5 @@
 <view id='image-wrapper'>
-  <image class='img'></image>
+  <image class='img' src='../../../images/huahua.png'></image>
   <view class='name'>mine自习室</view>
   <view class='add'>哈尔滨市香坊区木材街59号</view>
 </view>

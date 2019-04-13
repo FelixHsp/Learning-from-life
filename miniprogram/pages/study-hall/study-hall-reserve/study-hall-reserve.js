@@ -3,6 +3,8 @@ var study_price;
 var oppid;
 var time;
 var rid;
+var money;
+var time2;
 Page({
 
   /**
@@ -167,18 +169,14 @@ Page({
           console.error('[云函数] [login] 调用失败', err)
         }
       });
+      //防止两个用户同时进到预定页面，预定出错
       const db = wx.cloud.database({});
       const usercount = db.collection('usercount');
       usercount.doc(oppid).get({
         success: (res)=> {
           if (res.data.usercount_count>=this.data.book.room_price){
-            // console.log('足够')
-            usercount.doc(oppid).update({
-              data:{
-                usercount_count: res.data.usercount_count - this.data.book.room_price
-              }
-            })
-            // console.log(this.data.idx)
+            console.log(1)
+            this.money = res.data.usercount_count
             wx.cloud.callFunction({
               // 云函数名称
               name: 'time',
@@ -187,23 +185,74 @@ Page({
 
               },
             }).then(res => {
-              this.time = JSON.parse(res.result)
+              this.time2 = JSON.parse(res.result)
+              console.log(Date.parse(new Date(this.time2.sysTime2.replace(/-/g, '/'))) / 1000)
               const db = wx.cloud.database({});
-              const reserve = db.collection('studyhall-reserve');
-              reserve.add({
-                data: {
-                  studyhallreserve_begintime: this.time.sysTime2,
-                  studyhallreserve_finishtime: Date.parse(new Date(this.time.sysTime2.replace(/-/g, '/'))) / 1000 + this.data.book.room_time*3600,
-                  studyhallreserve_sid: this.data.book.room_id,
-                  studyhallreserve_hour: this.data.book.room_time
-                }
-              }).then(res => {
-                this.rid=res._id
-                console.log(this.rid)
+              const studyhalls = db.collection('studyhall-reserve');
+              studyhalls.where({
+                studyhallreserve_sid: this.data.idx
               })
-            });
-            
-          }else{
+                .get({
+                  success: res => {
+                    if (res.data.reverse()[0].studyhallreserve_finishtime * 1 >= Date.parse(new Date(this.time2.sysTime2.replace(/-/g, '/'))) / 1000 * 1){
+                      wx.showModal({
+                        title: '提示',
+                        content: '当前自习室被预定，点击将返回首页',
+                        success:(res)=>{
+                          if(res.confirm){
+                            wx.navigateBack({
+                              delta: 1
+                            })
+                          }
+                        }
+                      })
+                    }else{
+                      wx.showModal({
+                        title: '提示',
+                        content: '本次将扣费' + this.data.book.room_price + '元,' + '付费后在我的里可以查看自习室预定详情。若点取消，需重新进入该页面进行预定。',
+                        success: (res) => {
+                          if (res.confirm) {
+                            usercount.doc(this.oppid).update({
+                              data: {
+                                usercount_count: this.money - this.data.book.room_price
+                              }
+                            })
+                            // console.log(this.data.idx)
+                            wx.cloud.callFunction({
+                              // 云函数名称
+                              name: 'time',
+                              // 传给云函数的参数
+                              data: {
+
+                              },
+                            }).then(res => {
+                              this.time = JSON.parse(res.result)
+                              const db = wx.cloud.database({});
+                              const reserve = db.collection('studyhall-reserve');
+                              reserve.add({
+                                data: {
+                                  studyhallreserve_begintime: this.time.sysTime2,
+                                  studyhallreserve_finishtime: Date.parse(new Date(this.time.sysTime2.replace(/-/g, '/'))) / 1000 + this.data.book.room_time * 3600,
+                                  studyhallreserve_sid: this.data.book.room_id,
+                                  studyhallreserve_hour: this.data.book.room_time
+                                }
+                              }).then(res => {
+                                console.log(res)
+                              })
+                            })
+                            wx.navigateBack({
+                              delta: 1
+                            })
+                          } else if (res.cancel) {
+                            console.log('2')
+                          }
+                        }
+                      })
+                    }
+                  }
+                })
+            })
+          } else if ((this.data.book.room_price-1 >= res.data.usercount_count)){
             wx.showModal({
               title: '提示',
               content: '余额不足请充值',
@@ -217,3 +266,36 @@ Page({
     }
   }
 })
+/* 
+usercount.doc(this.oppid).update({
+                  data: {
+                    usercount_count: this.money - this.data.book.room_price
+                  }
+                })
+                // console.log(this.data.idx)
+                wx.cloud.callFunction({
+                  // 云函数名称
+                  name: 'time',
+                  // 传给云函数的参数
+                  data: {
+
+                  },
+                }).then(res => {
+                  this.time = JSON.parse(res.result)
+                  const db = wx.cloud.database({});
+                  const reserve = db.collection('studyhall-reserve');
+                  reserve.add({
+                    data: {
+                      studyhallreserve_begintime: this.time.sysTime2,
+                      studyhallreserve_finishtime: Date.parse(new Date(this.time.sysTime2.replace(/-/g, '/'))) / 1000 + this.data.book.room_time * 3600,
+                      studyhallreserve_sid: this.data.book.room_id,
+                      studyhallreserve_hour: this.data.book.room_time
+                    }
+                  }).then(res => {
+                    console.log(res)
+                  })
+                })
+                wx.navigateBack({
+                  delta: 1
+                })
+ */

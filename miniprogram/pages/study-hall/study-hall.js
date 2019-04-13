@@ -15,59 +15,59 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
 
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   },
-  onLoad: function() {
+  onLoad: function () {
     /* wx.cloud.callFunction({
       name: 'login',
       data: {},
@@ -90,16 +90,16 @@ Page({
       // console.log(JSON.parse(res.result).weatherinfo)
       // city = JSON.parse(res.result).weatherinfo.city
       // temp = JSON.parse(res.result).weatherinfo.temp
-        this.setData({
-          ['weather.city']: JSON.parse(res.result).city,
-          ['weather.tem1']: JSON.parse(res.result).data[0].tem1,
-          ['weather.tem2']: JSON.parse(res.result).data[0].tem2+'-',
-          ['weather.date']: JSON.parse(res.result).data[0].date,
-          ['weather.week']: JSON.parse(res.result).data[0].week,
-          ['weather.wea']: JSON.parse(res.result).data[0].wea
-          // ['weather.temp']: JSON.parse(res.result).temp+'℃'
-        })
+      this.setData({
+        ['weather.city']: JSON.parse(res.result).city,
+        ['weather.tem1']: JSON.parse(res.result).data[0].tem1,
+        ['weather.tem2']: JSON.parse(res.result).data[0].tem2 + '-',
+        ['weather.date']: JSON.parse(res.result).data[0].date,
+        ['weather.week']: JSON.parse(res.result).data[0].week,
+        ['weather.wea']: JSON.parse(res.result).data[0].wea
+        // ['weather.temp']: JSON.parse(res.result).temp+'℃'
       })
+    })
       .catch(console.error);
     this.setData({
       nowYear: util.formatYear(new Date()),
@@ -123,10 +123,10 @@ Page({
       success: function (res) {
         console.log(res)
       },
-      fail: function(){
+      fail: function () {
         usercount.add({
-          data:{
-            usercount_count:'0'
+          data: {
+            usercount_count: '0'
           }
         })
       }
@@ -136,7 +136,7 @@ Page({
       name: 'time',
       // 传给云函数的参数
       data: {
-        
+
       },
     }).then(res => {
       // 计算时间戳
@@ -169,17 +169,17 @@ Page({
       }
     })
   }, */
-  click1: function() {
+  click1: function () {
     const db = wx.cloud.database({});
     const studyhalls = db.collection('studyhall-reserve');
     studyhalls.where({
       studyhallreserve_sid: '1'
     })
       .get({
-        success: res=> {
+        success: res => {
           /* console.log(typeof (res.data.reverse()[0].studyhallreserve_finishtime))
           console.log(typeof(this.time)) */
-          if (res.data.reverse()[0].studyhallreserve_finishtime*1>=this.time*1){
+          if (res.data.reverse()[0].studyhallreserve_finishtime * 1 >= this.time * 1) {
             wx.showModal({
               title: '提示',
               content: '当前自习室被占用',
@@ -187,8 +187,8 @@ Page({
               }
             })
             // console.log(1)
-          } else{
-           wx.navigateTo({
+          } else {
+            wx.navigateTo({
               url: '../study-hall/study-hall-reserve/study-hall-reserve?id=1',
             })
             // console.log(2)
