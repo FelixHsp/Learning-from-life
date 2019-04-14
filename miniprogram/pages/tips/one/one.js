@@ -194,6 +194,7 @@ Page({
         console.log(this.data.array2)
       }
     })
+    wx.stopPullDownRefresh()
   },
 
   /**
@@ -284,6 +285,31 @@ Page({
           plan.doc(this.data.array[e.currentTarget.dataset.id]._id).remove({
             success(res) {
               
+            }
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+  del2: function (e) {
+    wx.showModal({
+      title: '提示',
+      content: '是否删除计划',
+      success: (res) => {
+        if (res.confirm) {
+          wx.showToast({
+            title: '删除成功',
+            icon: 'success',
+            duration: 2000
+          })
+          // console.log(this.data.array[e.currentTarget.dataset.id]._id)
+          const db = wx.cloud.database({});
+          const plan = db.collection('plan');
+          plan.doc(this.data.array2[e.currentTarget.dataset.id]._id).remove({
+            success(res) {
+
             }
           })
         } else if (res.cancel) {

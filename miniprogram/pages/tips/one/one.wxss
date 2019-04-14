@@ -63,7 +63,7 @@ page{
 
 .add{
   display: flex;
-  height: 10%;
+  height: 70px;
 }
 .add-img{
   display: flex;
@@ -127,7 +127,7 @@ page{
   width: 540rpx;
   overflow: hidden;
   position: fixed;
-  top: 50%;
+  top: 300px;
   left: 0;
   z-index: 9999;
   background: #fff;

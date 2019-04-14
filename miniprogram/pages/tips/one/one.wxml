@@ -6,7 +6,9 @@
   <!-- 当前正在使用的自习室列表 -->
   <swiper-item>
     <view class='swiper_con'>
-
+       <view class='add' bindtap="showDialogBtn">
+        <image class="add-img" src='../../../images/add.png'></image>
+      </view>
       <!-- 模块 -->
       <view wx:for="{{array}}" id="module" wx:key='{{item.index}}'>
         <view class='plan'>
@@ -19,9 +21,7 @@
           已完成
         </view>
       </view>
-      <view class='add' bindtap="showDialogBtn">
-        <image class="add-img" src='../../../images/add.png'></image>
-      </view>
+    
       <!-- 文本编辑弹窗 -->
       <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
       <view class="modal-dialog" wx:if="{{showModal}}">
@@ -70,7 +70,7 @@
         <view class='plan'>
           {{item.plan_detail}}
         </view>
-        <view class='right' bindtap='del' data-id='{{index}}' >
+        <view class='right' bindtap='del2' data-id='{{index}}' >
           删除计划
         </view>
         <view class='left' bindtap='change2' data-id='{{index}}' >
