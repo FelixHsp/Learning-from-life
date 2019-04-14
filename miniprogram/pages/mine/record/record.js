@@ -45,7 +45,7 @@ Page({
       reserve.where({
         _openid: oppid,
         studyhallreserve_finishtime: _.lt(this.time)
-      }).orderBy('_id', 'desc').get({
+      }).orderBy('studyhallreserve_begintime', 'desc').get({
         success: (res) => {
           // console.log(res.data)
           this.ls2 = res.data
