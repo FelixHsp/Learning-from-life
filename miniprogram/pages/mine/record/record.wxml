@@ -2,7 +2,7 @@
     <view class='tab  {{currentData == 0 ? "tabBorer" : ""}}'  data-current = "0" bindtap='checkCurrent'>正在使用</view>
     <view class='tab  {{currentData == 1 ? "tabBorer" : ""}}'  data-current = "1" bindtap='checkCurrent'>历史纪录</view>
 </view>
-<swiper current="{{currentData}}" class='swiper' style="height:600px;" duration="300" bindchange="bindchange">
+<swiper current="{{currentData}}" class='swiper' style="height:{{scrollHeight}}px" duration="300" bindchange="bindchange">
 <!-- 当前正在使用的自习室列表 -->
   <swiper-item><view class='swiper_con'>
     <view wx:for="{{list}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName._id}}" id="list">

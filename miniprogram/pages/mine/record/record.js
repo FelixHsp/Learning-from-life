@@ -10,7 +10,8 @@ Page({
   data: {
     currentData: 0,
     list: [],
-    list2:[]
+    list2:[],
+    scrollHeight: 0
   },
   /**
    * 生命周期函数--监听页面加载
@@ -67,7 +68,13 @@ Page({
           console.log(this.data.list)
         }
       })
+    });
+  },
+  onShow: function(){
+    this.setData({
+      scrollHeight:2000 
     })
+    // console.log(this.ls1.length)
   },
   //获取当前滑块的index
   bindchange: function (e) {
