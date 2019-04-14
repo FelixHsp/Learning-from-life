@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/tips/two/two",
     "pages/study-hall/study-hall",
     "pages/tips/one/one",
     "pages/tips/tips",
@@ -12,7 +11,8 @@
     "pages/study-hall/study-hall-reserve/study-hall-reserve",
     "pages/study-hall/study-hall-detail/study-hall-detail",
     "pages/mine/about/about",
-    "pages/mine/record/record"
+    "pages/mine/record/record",
+    "pages/tips/two/two"
   ],
   "window": {
     "backgroundColor": "#FFFFFF",
