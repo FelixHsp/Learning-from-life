@@ -1,5 +1,8 @@
 <!--miniprogram/pages/tips/two/two.wxml-->
 <view wx:for="{{array}}" id="module" wx:key="item._id">
+  <view class='time'>
+    <text>{{item.notes_time}}</text>
+  </view>
   <view class='plan'>
     {{item.notes_detail}}
   </view>
