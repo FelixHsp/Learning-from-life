@@ -27,7 +27,7 @@ Page({
     const reserve = db.collection('studyhall-reserve');
     reserve.where({
       _openid:oppid
-    }).orderBy('_id', 'desc').get({
+    }).orderBy('studyhallreserve_begintime', 'desc').get({
       success: (res) => {
         // console.log(res.data)
         this.ls=res.data

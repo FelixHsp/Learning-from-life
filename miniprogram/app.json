@@ -28,13 +28,13 @@
     "list": [
       {
         "pagePath": "pages/study-hall/study-hall",
-        "text": "text",
+        "text": "mine自习室",
         "iconPath": "images/icon_zixishi0.png",
         "selectedIconPath": "images/icon_zixishi.png"
       },
       {
         "pagePath": "pages/flower/flower",
-        "text": "text",
+        "text": "专注学习",
         "iconPath": "images/hua0.png",
         "selectedIconPath": "images/hua.png"
       },
@@ -51,6 +51,5 @@
         "selectedIconPath": "images/self.png"
       }
     ]
-  },
-  "sitemapLocation": "sitemap.json"
+  }
 }
