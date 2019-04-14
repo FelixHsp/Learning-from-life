@@ -1,4 +1,5 @@
 // pages/study hall/study hall-reserve/study hall-reserve.js
+var util = require('../../../utils/util.js');
 var study_price;
 var study_name;
 var oppid;
@@ -6,6 +7,7 @@ var time;
 var rid;
 var money;
 var time2;
+var relationtime;
 if (getCurrentPages().length != 0) {
   //刷新当前页面的数据
   getCurrentPages()[getCurrentPages().length - 1].onLoad()
@@ -201,6 +203,7 @@ Page({
               })
                 .get({
                   success: res => {
+                    // console.log(this.relationtime)
                     if (res.data.reverse()[0].studyhallreserve_finishtime * 1 >= Date.parse(new Date(this.time2.sysTime2.replace(/-/g, '/'))) / 1000 * 1){
                       wx.showModal({
                         title: '提示',
@@ -234,6 +237,7 @@ Page({
                               },
                             }).then(res => {
                               this.time = JSON.parse(res.result)
+                              this.relationtime = util.formatTime(Date.parse(new Date(this.time.sysTime2.replace(/-/g, '/'))) / 1000 + this.data.book.room_time * 3600, 'Y/M/D h:m:s')
                               const db = wx.cloud.database({});
                               const reserve = db.collection('studyhall-reserve');
                               reserve.add({
@@ -245,6 +249,7 @@ Page({
                                   studyhallreserve_price: this.data.book.room_price,
                                   studyhallreserve_username: this.data.book.user_name,
                                   studyhallreserve_usercall: this.data.book.user_call,
+                                  studyhallreserve_relationtime: this.relationtime,
                                   studyhallreserve_studyhallname: '自习室' + this.data.book.room_id
                                 }
                               }).then(res => {

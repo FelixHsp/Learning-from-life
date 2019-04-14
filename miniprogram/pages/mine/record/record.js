@@ -1,69 +1,92 @@
-// pages/mine/record/record.js
+var oppid;
+var time;
+var ls;
+var ls2;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list: [{
-      title: "自习室1", pay: "-5.80", time: "今天8:50"
-      , cost: 3,spend:"半小时"
-    }, { title: "自习室2", pay: "-5.80", time: "今天8:50", cost: 3, spend: "一小时" }, { title: "自习室3", pay: "-5.80", time: "今天8:50", cost: 3, spend: "一小时" }, { title: "自习室4", pay: "-5.80", time: "今天8:50", cost: 3, spend: "一小时" }, { title: "自习室5", pay: "-5.80", time: "今天8:50", cost: 3, spend: "一小时" }, { title: "自习室6", pay: "-5.80", time: "今天8:50", cost: 3, spend: "一小时"}]
+    currentData: 0,
+    list: [],
+    list2:[]
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {},
+      success: res => {
+        oppid = res.result.openid
+        console.log(oppid)
+      },
+      fail: err => {
+        console.error('[云函数] [login] 调用失败', err)
+      }
+    });
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'time',
+      // 传给云函数的参数
+      data: {
 
+      },
+    }).then(res => {
+      // 计算时间戳
+      this.time = Date.parse(new Date(JSON.parse(res.result).sysTime2.replace(/-/g, '/'))) / 1000
+      const db = wx.cloud.database({});
+      const reserve = db.collection('studyhall-reserve');
+      const _ = db.command
+      // console.log(this.time)
+      reserve.where({
+        _openid: oppid,
+        studyhallreserve_finishtime: _.lt(this.time)
+      }).orderBy('_id', 'desc').get({
+        success: (res) => {
+          // console.log(res.data)
+          this.ls2 = res.data
+          this.setData({
+            ['list2']: this.ls2
+          })
+          console.log(this.data.list2)
+        }
+      });
+      reserve.where({
+        _openid: oppid,
+        studyhallreserve_finishtime: _.gte(this.time)
+      }).orderBy('_id', 'desc').get({
+        success: (res) => {
+          // console.log(res.data)
+          this.ls = res.data
+          this.setData({
+            ['list']: this.ls
+          })
+          console.log(this.data.list)
+        }
+      })
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  //获取当前滑块的index
+  bindchange: function (e) {
+    const that = this;
+    that.setData({
+      currentData: e.detail.current
+    })
   },
+  //点击切换，滑块index赋值
+  checkCurrent: function (e) {
+    const that = this;
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+    if (that.data.currentData === e.target.dataset.current) {
+      return false;
+    } else {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+      that.setData({
+        currentData: e.target.dataset.current
+      })
+    }
   }
 })

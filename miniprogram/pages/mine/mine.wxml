@@ -17,7 +17,7 @@
     </view>
     <view class='record' bindtap='moveRecord'>
     <image src='imgs/notebook.png' class='img-record'></image>
-    学习记录
+    自习室记录
     </view>
     <view class='wallet' bindtap='moveWallet'>
     <image src='imgs/wallet.png'
