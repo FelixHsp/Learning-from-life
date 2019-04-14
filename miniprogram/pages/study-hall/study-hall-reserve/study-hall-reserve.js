@@ -1,5 +1,6 @@
 // pages/study hall/study hall-reserve/study hall-reserve.js
 var study_price;
+var study_name;
 var oppid;
 var time;
 var rid;
@@ -95,7 +96,8 @@ Page({
       .get({
         success(res) {
           // console.log(res)
-          study_price = res.data[0].studyhall_price
+            study_price = res.data[0].studyhall_price,
+            study_name = res.data[0].studyhall_name
         }
       });
   },
@@ -239,7 +241,11 @@ Page({
                                   studyhallreserve_begintime: this.time.sysTime2,
                                   studyhallreserve_finishtime: Date.parse(new Date(this.time.sysTime2.replace(/-/g, '/'))) / 1000 + this.data.book.room_time * 3600,
                                   studyhallreserve_sid: this.data.book.room_id,
-                                  studyhallreserve_hour: this.data.book.room_time
+                                  studyhallreserve_hour: this.data.book.room_time,
+                                  studyhallreserve_price: this.data.book.room_price,
+                                  studyhallreserve_username: this.data.book.user_name,
+                                  studyhallreserve_usercall: this.data.book.user_call,
+                                  studyhallreserve_studyhallname: '自习室' + this.data.book.room_id
                                 }
                               }).then(res => {
                                 console.log(res)

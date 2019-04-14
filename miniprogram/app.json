@@ -1,15 +1,15 @@
 {
   "pages": [
     "pages/study-hall/study-hall",
+    "pages/mine/bill/bill",
+    "pages/mine/mine",
     "pages/flower/flower",
     "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/study-hall/study-hall-reserve/study-hall-reserve",
     "pages/study-hall/study-hall-detail/study-hall-detail",
     "pages/tips/tips",
-    "pages/mine/mine",
     "pages/mine/about/about",
-    "pages/mine/bill/bill",
     "pages/mine/record/record",
     "pages/tips/one/one",
     "pages/tips/two/two"

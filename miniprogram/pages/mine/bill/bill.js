@@ -1,17 +1,42 @@
 // pages/mine/bill/bill.js
+var oppid;
+var ls;
 Page({
   data: {
-    list: [{
-      title: "自习室1", pay: "-5.80", time: "今天8:50"
-      , cost: 3
-    }, { title: "自习室2", pay: "-5.80", time: "今天8:50", cost: 3 }, { title: "自习室3", pay: "-5.80", time: "今天8:50", cost: 3 }, { title: "自习室4", pay: "-5.80", time: "今天8:50", cost: 3 }, { title: "自习室5", pay: "-5.80", time: "今天8:50", cost: 3 }, { title: "自习室6", pay: "-5.80", time: "今天8:50", cost: 3 }]
+    list: [],
+    list2:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {},
+      success: res => {
+        oppid=res.result.openid
+        console.log(oppid)
+      },
+      fail: err => {
+        console.error('[云函数] [login] 调用失败', err)
+      }
+    });
+    // console.log(this.data.list)
+    const db = wx.cloud.database({});
+    const reserve = db.collection('studyhall-reserve');
+    reserve.where({
+      _openid:oppid
+    }).orderBy('_id', 'desc').get({
+      success: (res) => {
+        // console.log(res.data)
+        this.ls=res.data
+        this.setData({
+          ['list']:this.ls
+        })
+        console.log(this.data.list)
+      }
+    })
   },
 
   /**
@@ -39,7 +64,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    
   },
 
   /**

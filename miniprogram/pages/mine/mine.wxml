@@ -12,15 +12,15 @@
   </view>
   <view class='list'>
     <view class='pay' bindtap='moveBill'>
-    <image src='../../images/bill.png' class='img-bill'></image>
+    <image src='imgs/test.png' class='img-bill'></image>
     账单管理
     </view>
     <view class='record' bindtap='moveRecord'>
-    <image src='../../images/record.png' class='img-record'></image>
+    <image src='imgs/notebook.png' class='img-record'></image>
     学习记录
     </view>
     <view class='wallet' bindtap='moveWallet'>
-    <image src='../../images/wallet.png'
+    <image src='imgs/wallet.png'
     class='img-wallet'></image>
     我的钱包
     </view>
