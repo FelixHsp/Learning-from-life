@@ -1,22 +1,58 @@
 // miniprogram/pages/tips/two/two.js
+var oppid;
+var ls;
+// var ls2;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    array: [{
-      content: '英语单词X100'
-    }, {
-      content: '数学题X5'
-    },],
+    array: [],
+    add: '',
+    time:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {},
+      success: res => {
+        oppid = res.result.openid
+        console.log(oppid)
+      },
+      fail: err => {
+        console.error('[云函数] [login] 调用失败', err)
+      }
+    });
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: 'time',
+      // 传给云函数的参数
+      data: {
 
+      },
+    }).then(res => {
+      this.data.time = JSON.parse(res.result).sysTime2
+      // console.log(this.data.time)  
+    });
+    const db = wx.cloud.database({});
+    const notes = db.collection('notes');
+    notes.where({
+      _openid: oppid,
+    }).get({
+      success: (res) => {
+        // console.log(res.data)
+        this.ls = res.data
+        this.setData({
+          ['array']: this.ls
+        })
+        console.log(this.data.array)
+      }
+    });
   },
 
   /**
@@ -51,7 +87,21 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    const db = wx.cloud.database({});
+    const notes = db.collection('notes');
+    notes.where({
+      _openid: oppid
+    }).get({
+      success: (res) => {
+        // console.log(res.data)
+        this.ls = res.data
+        this.setData({
+          ['array']: this.ls
+        })
+        console.log(this.data.array)
+      }
+    })
+    wx.stopPullDownRefresh()
   },
 
   /**
@@ -68,17 +118,26 @@ Page({
 
   },
   //删除札记
-  del: function () {
+  del: function (e) {
     wx.showModal({
       title: '提示',
       content: '是否删除札记',
-      success: function (res) {
+      success: (res) => {
         if (res.confirm) {
           wx.showToast({
             title: '删除成功',
             icon: 'success',
             duration: 2000
           })
+          const db = wx.cloud.database({});
+          const notes = db.collection('notes');
+          // console.log(this.data)
+          notes.doc(this.data.array[e.currentTarget.dataset.id]._id).remove({
+            success(res) {
+
+            }
+          })
+          // console.log(e.currentTarget.dataset.id)
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
@@ -119,13 +178,25 @@ Page({
    */
   onConfirm: function () {
     wx.showToast({
-      title: '修改成功',
+      title: '添加成功',
       icon: 'success',
       duration: 2000
     })
+    // console.log(this.data.add)
+    const db = wx.cloud.database({});
+    const notes = db.collection('notes');
+    notes.add({
+      data: {
+        notes_detail: this.data.add,
+        notes_time: this.data.time
+      }
+    })
     this.hideModal();
+  },
+  inputChange: function (e) {
+    this.data.add=e.detail.value
+    console.log(this.data.add)
   }
-
 
 
 

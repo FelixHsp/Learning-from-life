@@ -1,2 +1,1 @@
-<!--pages/mine/about/about.wxml-->
-<text>pages/mine/about/about.wxml</text>
+<button class='button' open-type="feedback">反馈与建议</button>

@@ -79,9 +79,9 @@ page{
   top:40%;
 }
 .left{
-  color:#99CC99;
-  background: white;
-  border: 1px solid white;
+  color:white;
+  background: #84AF9B;
+  border: 1px solid #84AF9B;
   border-radius: 5px;
   /* display: flex; */
   position: absolute;
@@ -90,9 +90,9 @@ page{
   right: 130rpx;
 }
 .right{
-  color:red;
-  background: white;
-  border: 1px solid red;
+  color:white;
+  background: #FC9D99;
+  border: 1px solid #FC9D99;
   border-radius: 5px;
   display: flex;
   position: absolute;

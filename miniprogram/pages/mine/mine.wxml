@@ -24,10 +24,10 @@
     class='img-wallet'></image>
     我的钱包
     </view>
-    <view class='about' bindtap='moveAbout'>
-    <image src='../../images/about.png'
+    <view class='about'>
+    <image src='imgs/load.png'
     class='img-about'></image>
-    关于我们
+    <button class='button' open-type="feedback">意见反馈</button>
     </view>
   </view>
 </view>

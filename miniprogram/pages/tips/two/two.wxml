@@ -1,34 +1,28 @@
 <!--miniprogram/pages/tips/two/two.wxml-->
-<view wx:for="{{array}}" id="module"> 
+<view wx:for="{{array}}" id="module" wx:key="item._id">
+  <view class='plan'>
+    {{item.notes_detail}}
+  </view>
 
-<view class='plan'>
-{{item.content}}
-</view>
+  <view class='right' bindtap='del' data-id='{{index}}'>
+  </view>
 
-<view class='right' bindtap='del'>
-删除札记
-</view>
-
-<view id='left' bindtap='showDialogBtn'>
-编辑札记
-</view>
   <!--弹窗-->
   <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
   <view class="modal-dialog" wx:if="{{showModal}}">
-    <view class="modal-title">编辑札记</view>
+    <view class="modal-title">添加札记</view>
     <view class="modal-content">
       <view class="modal-input">
-        <input placeholder-class="input-holder" bindinput="inputChange" class="input"></input>
+        <textarea placeholder-class="input-holder" bindinput="inputChange" class="input"></textarea>
       </view>
-      
+
     </view>
     <view class="modal-footer">
       <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
       <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
     </view>
   </view>
-
-
-
-
+</view>
+<view class='add' bindtap="showDialogBtn">
+    <image class="add-img" src='../../../images/add.png'></image>
 </view>
