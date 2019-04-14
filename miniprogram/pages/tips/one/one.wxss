@@ -1,19 +1,66 @@
-/* miniprogram/pages/tips/one/one.wxss */
 page{
   background-color: #eee;
   height: 100%;
   width: 100%;
   font-family: PingFangSC-Regular;
 }
+.tab {
+  float: left;
+  width: 50%;
+  text-align: center;
+  padding: 10rpx 0;
+  height: 20px;
+  font-size: 14px;
+  line-height: 20px;
+}
+ 
+.topTabSwiper {
+  border: 1px solid #99CC99;
+  /* border-bottom: 1px solid #99CC99; */
+  background: white;
+  color: #99CC99;
+  zoom: 1;
+  width: 50%;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+ 
+.topTabSwiper:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+ 
+.tabBorer {
+  /* border-bottom: 1px solid white; */
+  background: #99CC99;
+  color: white;
+}
+ 
+.swiper {
+  width: 100%;
+}
+ 
+.swiper_con {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  /* padding: 80rpx 0; */
+}
 #module{
-  background-color: #99CC99;
-  height: 25%;
+  background-color:#99CC99;
+  height: 15%;
+  /* line-height: 10%; */
   width: 90%;
+  color: white;
+  font-size: 14px;
+  font-weight: lighter;
   margin: 0 auto;
-  border-radius: 10;
+  border-radius: 10px;
   margin-bottom: 15rpx;
   position: relative;
 }
+
 .add{
   display: flex;
   height: 10%;
@@ -26,18 +73,30 @@ page{
 }
 .plan{
   color: #fff;
+  height: 10px;
+  line-height: 10px;
+  position: relative;
+  top:40%;
 }
-#left{
-  color: #fff;
-  display: flex;
+.left{
+  color:#99CC99;
+  background: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  /* display: flex; */
   position: absolute;
+  font-size: 12px;
   bottom: 7rpx;
-  left: 7rpx;
+  right: 130rpx;
 }
 .right{
-  color: #fff;
+  color:red;
+  background: white;
+  border: 1px solid red;
+  border-radius: 5px;
   display: flex;
   position: absolute;
+  font-size: 12px;
   bottom: 7rpx;
   right: 7rpx;
 }

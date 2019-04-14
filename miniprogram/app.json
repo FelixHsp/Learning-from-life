@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/study-hall/study-hall",
+    "pages/tips/one/one",
+    "pages/tips/tips",
     "pages/mine/bill/bill",
     "pages/mine/mine",
     "pages/flower/flower",
@@ -8,10 +10,8 @@
     "pages/userConsole/userConsole",
     "pages/study-hall/study-hall-reserve/study-hall-reserve",
     "pages/study-hall/study-hall-detail/study-hall-detail",
-    "pages/tips/tips",
     "pages/mine/about/about",
     "pages/mine/record/record",
-    "pages/tips/one/one",
     "pages/tips/two/two"
   ],
   "window": {
