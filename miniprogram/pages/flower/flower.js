@@ -52,7 +52,6 @@ Page({
       isFloShow: true,
       isBtnShow: false,
       min: this.data.min - 1,
-      // _crl: 1
     })
     clearInterval(this.data.loading);
     this.play()
@@ -75,21 +74,16 @@ Page({
 
   //定时器执行函数
   move() {
-    console.log(this.data.min)
-
     //给秒补零
     var strS = this.zeroFill('' + parseInt(num % 60), 2)
-
     this.setData({
       sec: strS,
     })
-
     //当时间归零停止计时器
     if (this.data.min == 0 && num == 0) {
       this.giveUp()
       return
     }
-
     //秒到0了分-1
     if (num == 0) {
       this.setData({
@@ -114,42 +108,42 @@ Page({
   //选花
   click1: function(e) {
     this.setData({
-      picture: '../../images/hua.png',
+      picture: 'cloud://learninglife-c8aa8e.6c65-learninglife-c8aa8e/flowers/1.png',
       _num: e.target.dataset.num
     })
 
   },
   click2: function(e) {
     this.setData({
-      picture: '../../images/tree.jpg',
+      picture: 'cloud://learninglife-c8aa8e.6c65-learninglife-c8aa8e/flowers/2.png',
       _num: e.target.dataset.num
 
     })
   },
   click3: function(e) {
     this.setData({
-      picture: '../../images/tip-one.png',
+      picture: 'cloud://learninglife-c8aa8e.6c65-learninglife-c8aa8e/flowers/3.png',
       _num: e.target.dataset.num
 
     })
   },
   click4: function(e) {
     this.setData({
-      picture: '../../images/two.png',
+      picture: 'cloud://learninglife-c8aa8e.6c65-learninglife-c8aa8e/flowers/4.png',
       _num: e.target.dataset.num
 
     })
   },
   click5: function(e) {
     this.setData({
-      picture: '../../images/self.png',
+      picture: 'cloud://learninglife-c8aa8e.6c65-learninglife-c8aa8e/flowers/5.png',
       _num: e.target.dataset.num
 
     })
   },
   click6: function(e) {
     this.setData({
-      picture: '../../images/pay.png',
+      picture: 'cloud://learninglife-c8aa8e.6c65-learninglife-c8aa8e/flowers/6.png',
       _num: e.target.dataset.num
 
     })

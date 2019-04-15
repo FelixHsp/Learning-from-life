@@ -6,7 +6,7 @@
       <text class='word' wx:if='{{isFloShow}}'>专注学习吧</text>
     </view>
 
-    <image class='flowers' src='../../images/tips.png' wx:if='{{!isFloShow}}'></image>
+    <image class='flowers' src='cloud://learninglife-c8aa8e.6c65-learninglife-c8aa8e/flowers/0.png' wx:if='{{!isFloShow}}'></image>
     <image class='flowers' src='{{picture}}' wx:if='{{isFloShow}}'></image>
     <view id='time'>
       <slider wx:if='{{!isFloShow}}' min='1' max="120" step="1" value='45' block-size='10' block-color='#99cc99' backgroundColor='#fff' activeColor='#99cc99' bindchanging='bindValue' disabled='{{isAbled}}' />
@@ -24,12 +24,12 @@
     <view id='content'>
       <text>选择你想养的花</text>
       <view id='img'>
-        <image data-num="1" class="{{_num==1?'chose':''}}" bindtap='click1' src='../../images/hua.png'></image>
-        <image data-num="2" class="{{_num==2?'chose':''}}" bindtap='click2' src='../../images/tree.jpg'></image>
-        <image data-num="3" class="{{_num==3?'chose':''}}" bindtap='click3' src='../../images/tip-one.png'></image>
-        <image data-num="4" class="{{_num==4?'chose':''}}" bindtap='click4' src='../../images/two.png'></image>
-        <image data-num="5" class="{{_num==5?'chose':''}}" bindtap='click5' src='../../images/self.png'></image>
-        <image data-num="6" class="{{_num==6?'chose':''}}" bindtap='click6' src='../../images/pay.png'></image>
+        <image data-num="1" class="{{_num==1?'chose':''}}" bindtap='click1' src='cloud://learninglife-c8aa8e.6c65-learninglife-c8aa8e/flowers/1.png'></image>
+        <image data-num="2" class="{{_num==2?'chose':''}}" bindtap='click2' src='cloud://learninglife-c8aa8e.6c65-learninglife-c8aa8e/flowers/2.png'></image>
+        <image data-num="3" class="{{_num==3?'chose':''}}" bindtap='click3' src='cloud://learninglife-c8aa8e.6c65-learninglife-c8aa8e/flowers/3.png'></image>
+        <image data-num="4" class="{{_num==4?'chose':''}}" bindtap='click4' src='cloud://learninglife-c8aa8e.6c65-learninglife-c8aa8e/flowers/4.png'></image>
+        <image data-num="5" class="{{_num==5?'chose':''}}" bindtap='click5' src='cloud://learninglife-c8aa8e.6c65-learninglife-c8aa8e/flowers/5.png'></image>
+        <image data-num="6" class="{{_num==6?'chose':''}}" bindtap='click6' src='cloud://learninglife-c8aa8e.6c65-learninglife-c8aa8e/flowers/6.png'></image>
       </view>
       <button bindtap='start'>确定</button>
     </view>
